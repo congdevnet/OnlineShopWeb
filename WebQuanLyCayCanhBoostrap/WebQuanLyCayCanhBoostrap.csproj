@@ -84,7 +84,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnityConfig.cs" />
     <Compile Include="AutoMap\AboutMap.cs" />
     <Compile Include="AutoMap\CategoryMap.cs" />
     <Compile Include="AutoMap\ContactMap.cs" />

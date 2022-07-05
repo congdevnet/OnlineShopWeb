@@ -1,6 +1,9 @@
 using System;
 
 using Unity;
+using WebBanHangMcv.Models;
+using WebBanHangMcv.Services.AboutService;
+using WebQuanLayBanHangEntityFramework;
 
 namespace WebBanHangMcv
 {
@@ -42,6 +45,12 @@ namespace WebBanHangMcv
 
             // TODO: Register your type's mappings here.
             // container.RegisterType<IProductRepository, ProductRepository>();
+
+            container.RegisterType<IRepository, Repository<OnlineShopEntities>>();
+            container.RegisterType<IBaseService, BaseService>();
+            container.RegisterType(typeof(IGenericService<>), typeof(GenericService<>));
+
+            container.RegisterType<IAboutService, AboutServices>();
         }
     }
 }

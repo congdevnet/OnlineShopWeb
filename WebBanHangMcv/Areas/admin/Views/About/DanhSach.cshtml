@@ -1,0 +1,377 @@
+﻿
+@{
+    ViewBag.Title = "DanhSach";
+    Layout = "~/Areas/admin/Views/Shared/Layout.cshtml";
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Danh sách</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                    <li class="breadcrumb-item active">Giới thiệu</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <button class="btn btn-primary">Thêm mới</button>
+                        </h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div id="tablerespon">
+
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</section>
+@*Modals thêm mới*@
+<div class="modal fade" id="Modalabout" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mediumModalLabel">Medium Modal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="tile-body" id="tile-body">
+                    <div class="form-group row">
+                        <input type="hidden" id="isid" />
+                        <label class="control-label col-md-2">Tên</label>
+                        <div class="col-md-3">
+                            <input class="form-control" type="text" id="txtmasothue" placeholder="Mã số thuế">
+                        </div>
+
+                        <label class="control-label col-md-2">Chủ đầu tư <span style="color:red">(*)</span></label>
+                        <div class="col-md-5">
+                            <input class="form-control" type="text" id="txtchudautu" placeholder="Nhập tên chủ đầu tư">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-md-2">Điện thoại</label>
+                        <div class="col-md-3">
+                            <input class="form-control" type="number" id="txtphone" placeholder="0xxxxxxxxxxxxx">
+                        </div>
+                        <label class="control-label col-md-2 ">Đại diện</label>
+                        <div class="col-md-5">
+                            <input class="form-control" type="text" id="txtnguoidaidien" placeholder="Nhập người đại diện">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-md-2">Email/Gmail</label>
+                        <div class="col-md-10">
+                            <input class="form-control" type="email" id="txtemail" placeholder="ABC123@gamil.com">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-md-2">Web</label>
+                        <div class="col-md-10">
+                            <input class="form-control" type="text" id="txtwe" placeholder="https://www.google.com.vn/">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-md-2">Địa chỉ</label>
+                        <div class="col-md-10">
+                            <input class="form-control" type="text" id="txtdiachi" placeholder="Xã-Huyện-Tỉnh">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-md-2">Ghi chú</label>
+                        <div class="col-md-10">
+                            <textarea class="form-control" id="txtghichu" rows="3" placeholder="Nhập ghi chú"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-md-2">Số thứ tự</label>
+                        <div class="col-md-10">
+                            <input class="form-control" type="number" id="txtsothutu">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnSave" onclick="save()">Confirm</button>
+                <button type="button" class="btn btn-secondary" id="btndelete" data-dismiss="modal">Hủy</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.content -->
+@section scripts {
+    <script type="text/javascript">
+        $(function () {
+            LoadTable();
+        });
+        function LoadTable() {
+            $.ajax({
+                url: '@Url.Action("Index","About")',
+                type: 'GET',
+            }).done(function (data) {
+                $('#tablerespon').html(data);
+                $("#tablerepoin").DataTable({
+                    "responsive": true, "lengthChange": false, "autoWidth": false,
+                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+                }).buttons().container().appendTo('#tablerepoin_wrapper .col-md-6:eq(0)');
+
+            });
+        };
+        function save() {
+        validate();
+        if (FormModalIsValid ) {
+             let From = new FormData();
+            From.append("ID", $("#isid").val());
+            From.append('Masothue', $('#txtmasothue').val());
+            From.append('tenchu', $('#txtchudautu').val());
+            From.append('nguoidaidien', $('#txtnguoidaidien').val());
+            From.append('dienthoai', $('#txtphone').val());
+            From.append('email', $('#txtemail').val());
+            From.append('web', $('#txtwe').val());
+            From.append('diachi', $('#txtdiachi').val());
+            From.append('ghichu', $('#txtghichu').val());
+            From.append('sothutu', $('#txtsothutu').val());
+
+            $.ajax({
+                url: '@Url.Action("AddNew","ChuDauTu")',
+
+                type: 'POST',
+                processData: false,
+                contentType: false,
+                cache:false,
+                data: From,
+                success: function (data) {
+
+                    if (data.isSuccess) {
+
+                        $("#ModalChuDauTu").modal("hide")
+                        LoadTable();
+                        $.notify({
+                            title: "Hoàn thành thao tác :",
+                            message: data.Message,
+                            icon: 'fa fa-check'
+                        }, {
+                                type: "success"
+                        });
+                    }
+                    else {
+                        $('#tile-body').nextAll(".spanError").remove();
+                        $('#tile-body').after('<div style="word-wrap: break-word" class="alert alert-dismissible alert-danger spanError">'+data.Message+'</div>')
+
+                    }
+
+                },
+                error: function (error) {
+                    $.notify({
+                        title: "Có lỗi xảy ra : ",
+                        message: error,
+                        icon: 'fa fa-check'
+                    }, {
+                            type: (data.isSuccess? "success":"danger")
+                        });
+                },
+
+            });
+        }
+    }
+    function Add() {
+        //làm mới input
+
+        $('#txtmasothue').val("");
+        $('#txtchudautu').val("");
+        $('#txtnguoidaidien').val("");
+        $('#txtphone').val("");
+        $('#txtemail').val("");
+        $('#txtwe').val("");
+        $('#txtdiachi').val("");
+        $('#txtghichu').val("");
+        $('#txtsothutu').val("");
+
+        $('#isid').val('-1')
+        //Xóa lỗi
+        ClearError('#txtchudautu');
+        ClearError('#txtmasothue');
+        ClearError('#txtnguoidaidien');
+        ClearError('#txtdiachi');
+        ClearError('#txtemail');
+        ClearError('#txtwe');
+
+        $('#tile-body').nextAll(".spanError").remove()
+        $('#mediumModalLabel').html('Thêm mới chủ đầu tư')
+        $('#btnSave').html('Thêm mới')
+        $("#ModalChuDauTu").modal({ backdrop: "static" })
+    }
+
+    function Edit(id) {
+        $('#isid').val(id);
+        ClearError('#txtchudautu');
+        ClearError('#txtmasothue');
+        ClearError('#txtnguoidaidien');
+        ClearError('#txtdiachi');
+        ClearError('#txtemail');
+        ClearError('#txtwe');
+
+        $('#tile-body').nextAll(".spanError").remove();
+        let formData = new FormData();
+        formData.append('ID', id);
+        $.ajax({
+            url: '@Url.Action("GetObjToEdit", "ChuDauTu")',
+            data: formData,
+            type: 'POST',
+            success: function (data) {
+                if (data.cod==200) {
+                    $('#btnSave').html('Cập nhật');
+                    $('#txtmasothue').val(data.Data.MaSoThue);
+                    $('#txtchudautu').val(data.Data.TenChuDauTu );
+                    $('#txtnguoidaidien').val(data.Data.NguoiDaiDien);
+                    $('#txtphone').val(data.Data.DienThoai);
+                    $('#txtemail').val(data.Data.Email);
+                    $('#txtwe').val(data.Data.Website);
+                    $('#txtdiachi').val(data.Data.DiaChi);
+                    $('#txtghichu').val(data.Data.GhiChu);
+                    $('#txtsothutu').val(data.Data.SoThuTu);
+
+                    $('#mediumModalLabel').html('Chỉnh sửa chủ đầu tư')
+
+                    //hiện modal
+                    $("#ModalChuDauTu").modal({ backdrop: "static" })
+                }
+                else {
+                    debugger
+                    swal("Có lỗi", data.Message, "error");
+                }
+            },
+            error: function (result, textStatus, errorThrown) {
+                debugger
+                swal("Có lỗi", "Error:" + errorThrown + " - " + textStatus + " - " + result, "error");
+            },
+            cache: false,
+            processData: false,
+            contentType: false
+        });
+
+    }
+    function Getid(id) {
+        $('#isid').val(id);
+        $('#tile-body').nextAll(".spanError").remove();
+        let formData = new FormData();
+        formData.append('ID', id);
+        $.ajax({
+            url: '@Url.Action("GetObjToEdit", "ChuDauTu")',
+            data: formData,
+            type: 'POST',
+            success: function (data) {
+                if (data.cod==200) {
+                    $('#btnSave').html('Cập nhật');
+                    $('#txtmasothue1').text(data.Data.MaSoThue);
+                    $('#txtchudautu1').text(data.Data.TenChuDauTu);
+                    $('#txtnguoidaidien1').text(data.Data.NguoiDaiDien);
+                    $('#txtphone1').text(data.Data.DienThoai);
+                    $('#txtemail1').text(data.Data.Email);
+                    $('#txtwe1').text(data.Data.Website);
+                    $('#txtdiachi1').text(data.Data.DiaChi);
+                    $('#txtghichu1').text(data.Data.GhiChu);
+                    $('#txtsothutu1').text(data.Data.SoThuTu);
+
+                    $('#mediumModalLabel').html('Chi tiết nhà thầu')
+
+                    //hiện modal
+                    $("#modalChuDauTuDetail").modal({ backdrop: "static" });
+
+                }
+                else {
+                    debugger
+                    swal("Có lỗi", data.Message, "error");
+                }
+            },
+            error: function (result, textStatus, errorThrown) {
+                debugger
+                swal("Có lỗi", "Error:" + errorThrown + " - " + textStatus + " - " + result, "error");
+            },
+            cache: false,
+            processData: false,
+            contentType: false
+        });
+    }
+
+    function validate() {
+        FormModalIsValid = true;
+        ValidateRequireControlMaxLength("#txtchudautu", "Bạn không được nhập quá tên chủ đầu tư quá 250 ký tự", 250);
+        ValidateRequireControlMaxLength("#txtmasothue", "Bạn không được nhập quá mã số thuế quá 20 ký tự", 20);
+        ValidateRequireControlMaxLength("#txtnguoidaidien", "Bạn không được nhập quá người đại diện quá 50 ký tự", 50);
+        ValidateRequireControlMaxLength("#txtdiachi", "Bạn không được nhập quá địa chỉ quá 250 ký tự", 250);
+        ValidateRequireControlMaxLength("#txtwe", "Bạn không được nhập quá tên trang web quá 150 ký tự", 150);
+
+        var Email = $('#txtemail').val();
+        ValidateRequireControl('#txtchudautu', 'Bạn phải nhập tên chủ đầu tư');
+        if (Email !="") {
+            ValidateRequireControlEmail("#txtemail", "Bạn phải nhập đúng định dạng gmail");
+            ValidateRequireControlMaxLength("#txtemail", "Bạn không được nhập quá tên gmail quá 150 ký tự", 150);
+        }
+
+    }
+
+    function Delete(id) {
+        swal({
+            title: "Bạn có chắc muốn xóa?",
+            text: "Bạn sẽ không thể phục hồi lại chủ đàu tư này!",
+            showCancelButton: true,
+            confirmButtonText: "Đồng ý",
+            cancelButtonText: "Hủy bỏ",
+            closeOnConfirm: false,
+            closeOnCancel: true
+        }, function (isConfirm) {
+                if (isConfirm) {
+                let formData = new FormData();
+                formData.append('ID', id);
+                $.ajax({
+                    url: '@Url.Action("delete", "ChuDauTu")',
+                    data: formData,
+                    type: 'POST',
+                    success: function (data) {
+                        if (data.isSuccess) {
+                            swal("Đã xóa!", data.Message, "success");
+                            LoadTable()
+                        }
+                        else {
+                            swal("Không xóa được chủ đầu tư này", data.Message,"error");
+                        }
+                    },
+                    error: function (error) {
+                        swal("Có lỗi", error,"error");
+                    },
+                    cache: false,
+                    processData: false,
+                    contentType: false
+                });
+
+                }
+        });
+    }
+    </script>
+}
+
+

@@ -172,7 +172,8 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Areas\admin\adminAreaRegistration.cs" />
-    <Compile Include="Areas\admin\Controllers\homeController.cs" />
+    <Compile Include="Areas\admin\Controllers\AboutController.cs" />
+    <Compile Include="Areas\admin\Controllers\homeadminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -241,6 +242,7 @@
     <Content Include="Areas\dist\js\pages\dashboard.js" />
     <Content Include="Areas\dist\js\pages\dashboard2.js" />
     <Content Include="Areas\dist\js\pages\dashboard3.js" />
+    <Content Include="Areas\hethong.js" />
     <Content Include="Areas\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.css" />
     <Content Include="Areas\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.min.css" />
     <Content Include="Areas\plugins\bootstrap-colorpicker\js\bootstrap-colorpicker.js" />
@@ -2255,6 +2257,8 @@
     <Content Include="Areas\dist\js\adminlte.js.map" />
     <Content Include="Areas\dist\js\adminlte.min.js.map" />
     <Content Include="Areas\admin\Views\home\Index.cshtml" />
+    <Content Include="Areas\admin\Views\About\DanhSach.cshtml" />
+    <Content Include="Areas\admin\Views\About\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
