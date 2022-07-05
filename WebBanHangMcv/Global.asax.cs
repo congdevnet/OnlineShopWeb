@@ -15,6 +15,7 @@ namespace WebBanHangMcv
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             Mapping.MapConfig();
+            UnityMvcActivator.Start();
         }
     }
 }
