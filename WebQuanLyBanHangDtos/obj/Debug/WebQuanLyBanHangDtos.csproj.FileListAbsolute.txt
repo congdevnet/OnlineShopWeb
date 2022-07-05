@@ -1,0 +1,6 @@
+C:\Users\PCnet\source\repos\WebBanHangMcv\WebQuanLyBanHangDtos\bin\Debug\WebQuanLyBanHangDtos.dll
+C:\Users\PCnet\source\repos\WebBanHangMcv\WebQuanLyBanHangDtos\bin\Debug\WebQuanLyBanHangDtos.pdb
+C:\Users\PCnet\source\repos\WebBanHangMcv\WebQuanLyBanHangDtos\obj\Debug\WebQuanLyBanHangDtos.csproj.AssemblyReference.cache
+C:\Users\PCnet\source\repos\WebBanHangMcv\WebQuanLyBanHangDtos\obj\Debug\WebQuanLyBanHangDtos.csproj.CoreCompileInputs.cache
+C:\Users\PCnet\source\repos\WebBanHangMcv\WebQuanLyBanHangDtos\obj\Debug\WebQuanLyBanHangDtos.dll
+C:\Users\PCnet\source\repos\WebBanHangMcv\WebQuanLyBanHangDtos\obj\Debug\WebQuanLyBanHangDtos.pdb

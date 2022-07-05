@@ -1,0 +1,6 @@
+C:\Users\PCnet\source\repos\WebBanHangMcv\WebBanHang.Common\bin\Debug\WebBanHang.Common.dll
+C:\Users\PCnet\source\repos\WebBanHangMcv\WebBanHang.Common\bin\Debug\WebBanHang.Common.pdb
+C:\Users\PCnet\source\repos\WebBanHangMcv\WebBanHang.Common\obj\Debug\WebBanHang.Common.csproj.AssemblyReference.cache
+C:\Users\PCnet\source\repos\WebBanHangMcv\WebBanHang.Common\obj\Debug\WebBanHang.Common.csproj.CoreCompileInputs.cache
+C:\Users\PCnet\source\repos\WebBanHangMcv\WebBanHang.Common\obj\Debug\WebBanHang.Common.dll
+C:\Users\PCnet\source\repos\WebBanHangMcv\WebBanHang.Common\obj\Debug\WebBanHang.Common.pdb

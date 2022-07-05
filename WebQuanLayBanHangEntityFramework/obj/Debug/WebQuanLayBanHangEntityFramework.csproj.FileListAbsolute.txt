@@ -1,0 +1,12 @@
+C:\Users\PCnet\source\repos\WebBanHangMcv\WebQuanLayBanHangEntityFramework\bin\Debug\WebQuanLayBanHangEntityFramework.dll.config
+C:\Users\PCnet\source\repos\WebBanHangMcv\WebQuanLayBanHangEntityFramework\bin\Debug\WebQuanLayBanHangEntityFramework.dll
+C:\Users\PCnet\source\repos\WebBanHangMcv\WebQuanLayBanHangEntityFramework\bin\Debug\WebQuanLayBanHangEntityFramework.pdb
+C:\Users\PCnet\source\repos\WebBanHangMcv\WebQuanLayBanHangEntityFramework\bin\Debug\EntityFramework.dll
+C:\Users\PCnet\source\repos\WebBanHangMcv\WebQuanLayBanHangEntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\PCnet\source\repos\WebBanHangMcv\WebQuanLayBanHangEntityFramework\bin\Debug\EntityFramework.xml
+C:\Users\PCnet\source\repos\WebBanHangMcv\WebQuanLayBanHangEntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\PCnet\source\repos\WebBanHangMcv\WebQuanLayBanHangEntityFramework\obj\Debug\WebQuanLayBanHangEntityFramework.csproj.AssemblyReference.cache
+C:\Users\PCnet\source\repos\WebBanHangMcv\WebQuanLayBanHangEntityFramework\obj\Debug\WebQuanLayBanHangEntityFramework.csproj.CoreCompileInputs.cache
+C:\Users\PCnet\source\repos\WebBanHangMcv\WebQuanLayBanHangEntityFramework\obj\Debug\WebQuanLayBanHangEntityFramework.csproj.CopyComplete
+C:\Users\PCnet\source\repos\WebBanHangMcv\WebQuanLayBanHangEntityFramework\obj\Debug\WebQuanLayBanHangEntityFramework.dll
+C:\Users\PCnet\source\repos\WebBanHangMcv\WebQuanLayBanHangEntityFramework\obj\Debug\WebQuanLayBanHangEntityFramework.pdb

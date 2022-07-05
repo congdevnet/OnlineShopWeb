@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32510.428
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebBanHangMcv", "WebBanHangMcv\WebBanHangMcv.csproj", "{6A3238E5-AA7D-4788-8E0A-BE43658E5F83}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebBanHangCommon", "WebBanHangCommon", "{70A86C1F-CF34-41F5-8FDD-334D03132BE4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebBanHangData", "WebBanHangData", "{8670E76E-7F6A-4B45-91D5-D8F03F0E1541}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebBanHangBoostrapper", "WebBanHangBoostrapper", "{1CE18D74-004B-4C69-A08A-3C152DA64D2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebQuanLayBanHangEntityFramework", "WebQuanLayBanHangEntityFramework\WebQuanLayBanHangEntityFramework.csproj", "{FF56A151-865F-4DF1-B0FE-A31A2B71DA90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebQuanLyBanHangDtos", "WebQuanLyBanHangDtos\WebQuanLyBanHangDtos.csproj", "{C6FEDA18-C9F6-44E2-B449-BE904890F83E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebQuanLyCayCanhBoostrap", "WebQuanLyCayCanhBoostrap\WebQuanLyCayCanhBoostrap.csproj", "{8301D696-C5D1-44DF-AAF4-03AC4127E731}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A3238E5-AA7D-4788-8E0A-BE43658E5F83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A3238E5-AA7D-4788-8E0A-BE43658E5F83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A3238E5-AA7D-4788-8E0A-BE43658E5F83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A3238E5-AA7D-4788-8E0A-BE43658E5F83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF56A151-865F-4DF1-B0FE-A31A2B71DA90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF56A151-865F-4DF1-B0FE-A31A2B71DA90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF56A151-865F-4DF1-B0FE-A31A2B71DA90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF56A151-865F-4DF1-B0FE-A31A2B71DA90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6FEDA18-C9F6-44E2-B449-BE904890F83E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6FEDA18-C9F6-44E2-B449-BE904890F83E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6FEDA18-C9F6-44E2-B449-BE904890F83E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6FEDA18-C9F6-44E2-B449-BE904890F83E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8301D696-C5D1-44DF-AAF4-03AC4127E731}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8301D696-C5D1-44DF-AAF4-03AC4127E731}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8301D696-C5D1-44DF-AAF4-03AC4127E731}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8301D696-C5D1-44DF-AAF4-03AC4127E731}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FF56A151-865F-4DF1-B0FE-A31A2B71DA90} = {8670E76E-7F6A-4B45-91D5-D8F03F0E1541}
+		{C6FEDA18-C9F6-44E2-B449-BE904890F83E} = {8670E76E-7F6A-4B45-91D5-D8F03F0E1541}
+		{8301D696-C5D1-44DF-AAF4-03AC4127E731} = {1CE18D74-004B-4C69-A08A-3C152DA64D2E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {97D28EAD-094B-44AF-8C52-8964F66F1F70}
+	EndGlobalSection
+EndGlobal

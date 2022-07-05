@@ -1,0 +1,6 @@
+C:\Users\PCnet\source\repos\WebBanHangMcv\WebBanHangRepository\obj\Debug\WebBanHangRepository.csproj.AssemblyReference.cache
+C:\Users\PCnet\source\repos\WebBanHangMcv\WebBanHangRepository\obj\Debug\WebBanHangRepository.csproj.CoreCompileInputs.cache
+C:\Users\PCnet\source\repos\WebBanHangMcv\WebBanHangRepository\bin\Debug\WebBanHangRepository.dll
+C:\Users\PCnet\source\repos\WebBanHangMcv\WebBanHangRepository\bin\Debug\WebBanHangRepository.pdb
+C:\Users\PCnet\source\repos\WebBanHangMcv\WebBanHangRepository\obj\Debug\WebBanHangRepository.dll
+C:\Users\PCnet\source\repos\WebBanHangMcv\WebBanHangRepository\obj\Debug\WebBanHangRepository.pdb
