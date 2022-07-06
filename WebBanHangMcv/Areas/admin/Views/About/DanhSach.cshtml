@@ -69,30 +69,30 @@
                 <div class="tile-body" id="tile-body">
                     <div class="form-group row">
                         <input type="hidden" id="isid" />
-                        <label class="control-label col-md-2">Tên</label>
-                        <div class="col-md-3">
-                            <input class="form-control" type="text" id="txtmasothue" placeholder="Mã số thuế">
+                        <label class="control-label col-md-2">Tên<span style="color:red">(*)</span></label>
+                        <div class="col-md-4">
+                            <input class="form-control" type="text" id="txtten" placeholder="Mời nhập tên">
                         </div>
 
-                        <label class="control-label col-md-2">Chủ đầu tư <span style="color:red">(*)</span></label>
-                        <div class="col-md-5">
-                            <input class="form-control" type="text" id="txtchudautu" placeholder="Nhập tên chủ đầu tư">
+                        <label class="control-label col-md-2">MetaTitle<span style="color:red">(*)</span></label>
+                        <div class="col-md-4">
+                            <input class="form-control" type="text" id="txtMetaTitle" readonly>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="control-label col-md-2">Điện thoại</label>
-                        <div class="col-md-3">
-                            <input class="form-control" type="number" id="txtphone" placeholder="0xxxxxxxxxxxxx">
+                        <label class="control-label col-md-2">Nhập mô tả</label>
+                        <div class="col-md-4">
+                            <input class="form-control" type="text" id="txtDescription" placeholder="Nhập mô tả">
                         </div>
-                        <label class="control-label col-md-2 ">Đại diện</label>
-                        <div class="col-md-5">
-                            <input class="form-control" type="text" id="txtnguoidaidien" placeholder="Nhập người đại diện">
+                        <label class="control-label col-md-2">Ngày tạo</label>
+                        <div class="col-md-4">
+                            <input class="form-control" type="text" id="txtCreatedDate">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="control-label col-md-2">Email/Gmail</label>
+                        <label class="control-label col-md-2">MetaKeywords</label>
                         <div class="col-md-10">
-                            <input class="form-control" type="email" id="txtemail" placeholder="ABC123@gamil.com">
+                            <input class="form-control" type="email" id="txtMetaKeywords" placeholder="Nhập MetaKeywords">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -260,9 +260,7 @@
                     $('#txtdiachi').val(data.Data.DiaChi);
                     $('#txtghichu').val(data.Data.GhiChu);
                     $('#txtsothutu').val(data.Data.SoThuTu);
-
                     $('#mediumModalLabel').html('Chỉnh sửa chủ đầu tư')
-
                     //hiện modal
                     $("#ModalChuDauTu").modal({ backdrop: "static" })
                 }

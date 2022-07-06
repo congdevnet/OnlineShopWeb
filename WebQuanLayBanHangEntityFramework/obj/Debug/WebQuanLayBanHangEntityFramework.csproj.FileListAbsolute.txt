@@ -10,3 +10,15 @@ C:\Users\PCnet\source\repos\WebBanHangMcv\WebQuanLayBanHangEntityFramework\obj\D
 C:\Users\PCnet\source\repos\WebBanHangMcv\WebQuanLayBanHangEntityFramework\obj\Debug\WebQuanLayBanHangEntityFramework.csproj.CopyComplete
 C:\Users\PCnet\source\repos\WebBanHangMcv\WebQuanLayBanHangEntityFramework\obj\Debug\WebQuanLayBanHangEntityFramework.dll
 C:\Users\PCnet\source\repos\WebBanHangMcv\WebQuanLayBanHangEntityFramework\obj\Debug\WebQuanLayBanHangEntityFramework.pdb
+E:\OnlineShopWeb\WebQuanLayBanHangEntityFramework\bin\Debug\WebQuanLayBanHangEntityFramework.dll.config
+E:\OnlineShopWeb\WebQuanLayBanHangEntityFramework\bin\Debug\WebQuanLayBanHangEntityFramework.dll
+E:\OnlineShopWeb\WebQuanLayBanHangEntityFramework\bin\Debug\WebQuanLayBanHangEntityFramework.pdb
+E:\OnlineShopWeb\WebQuanLayBanHangEntityFramework\bin\Debug\EntityFramework.dll
+E:\OnlineShopWeb\WebQuanLayBanHangEntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+E:\OnlineShopWeb\WebQuanLayBanHangEntityFramework\bin\Debug\EntityFramework.xml
+E:\OnlineShopWeb\WebQuanLayBanHangEntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+E:\OnlineShopWeb\WebQuanLayBanHangEntityFramework\obj\Debug\WebQuanLayBanHangEntityFramework.csproj.AssemblyReference.cache
+E:\OnlineShopWeb\WebQuanLayBanHangEntityFramework\obj\Debug\WebQuanLayBanHangEntityFramework.csproj.CoreCompileInputs.cache
+E:\OnlineShopWeb\WebQuanLayBanHangEntityFramework\obj\Debug\WebQuanLayBanHangEntityFramework.csproj.CopyComplete
+E:\OnlineShopWeb\WebQuanLayBanHangEntityFramework\obj\Debug\WebQuanLayBanHangEntityFramework.dll
+E:\OnlineShopWeb\WebQuanLayBanHangEntityFramework\obj\Debug\WebQuanLayBanHangEntityFramework.pdb
