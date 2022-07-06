@@ -26,12 +26,13 @@
                 <td>@item.CreatedDate.ToString("dd/MM/yyyy")</td>
                 <td>@item.Status</td>
                 <td>
-                    <a title="Sửa" onclick="Edit(@item.ID)"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a title="Sửa" onclick="Edit(@item.ID)"><i class="fa fa-edit"></i></a>
                     &nbsp; |
-                    <a title="Xóa" onclick="Delete(@item.ID)"><i class="fa-solid fa-trash"></i></a>
+                    <a title="Xóa" onclick="Delete(@item.ID)"><i class="fa fa-trash"></i></a>
                 </td>
             </tr>
         }
+        
     </tbody>
 </table>
 
