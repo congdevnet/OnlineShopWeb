@@ -28,9 +28,16 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">
-                            <button class="btn btn-primary">Thêm mới</button>
-                        </h3>
+                        @*<div class="card-title">*@
+                            <div class="row">
+                                <div class="col-8">
+                                    <strong>Danh sách giới thiệu</strong>
+                                </div>
+                                <div class="col-4" style="text-align:right" ;>
+                                    <span class="btn btn-primary" onclick="Add()">Thêm mới</span>
+                                </div>
+                            </div>
+                        @*</div>*@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -222,7 +229,7 @@
         $('#tile-body').nextAll(".spanError").remove()
         $('#mediumModalLabel').html('Thêm mới chủ đầu tư')
         $('#btnSave').html('Thêm mới')
-        $("#ModalChuDauTu").modal({ backdrop: "static" })
+        $("#Modalabout").modal({ backdrop: "static" })
     }
 
     function Edit(id) {
