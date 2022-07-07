@@ -1,0 +1,6 @@
+E:\OnlineShopWeb\WebBanHang_Common\bin\Debug\WebBanHang_Common.dll
+E:\OnlineShopWeb\WebBanHang_Common\bin\Debug\WebBanHang_Common.pdb
+E:\OnlineShopWeb\WebBanHang_Common\obj\Debug\WebBanHang_Common.csproj.AssemblyReference.cache
+E:\OnlineShopWeb\WebBanHang_Common\obj\Debug\WebBanHang_Common.csproj.CoreCompileInputs.cache
+E:\OnlineShopWeb\WebBanHang_Common\obj\Debug\WebBanHang_Common.dll
+E:\OnlineShopWeb\WebBanHang_Common\obj\Debug\WebBanHang_Common.pdb

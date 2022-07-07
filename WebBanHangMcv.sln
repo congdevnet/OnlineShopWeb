@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebQuanLyBanHangDtos", "Web
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebQuanLyCayCanhBoostrap", "WebQuanLyCayCanhBoostrap\WebQuanLyCayCanhBoostrap.csproj", "{8301D696-C5D1-44DF-AAF4-03AC4127E731}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebBanHang_Common", "WebBanHang_Common\WebBanHang_Common.csproj", "{A33FBFED-360F-47D8-9B1A-3E057CEC46AC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{8301D696-C5D1-44DF-AAF4-03AC4127E731}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8301D696-C5D1-44DF-AAF4-03AC4127E731}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8301D696-C5D1-44DF-AAF4-03AC4127E731}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A33FBFED-360F-47D8-9B1A-3E057CEC46AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A33FBFED-360F-47D8-9B1A-3E057CEC46AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A33FBFED-360F-47D8-9B1A-3E057CEC46AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A33FBFED-360F-47D8-9B1A-3E057CEC46AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,6 +53,7 @@ Global
 		{FF56A151-865F-4DF1-B0FE-A31A2B71DA90} = {8670E76E-7F6A-4B45-91D5-D8F03F0E1541}
 		{C6FEDA18-C9F6-44E2-B449-BE904890F83E} = {8670E76E-7F6A-4B45-91D5-D8F03F0E1541}
 		{8301D696-C5D1-44DF-AAF4-03AC4127E731} = {1CE18D74-004B-4C69-A08A-3C152DA64D2E}
+		{A33FBFED-360F-47D8-9B1A-3E057CEC46AC} = {70A86C1F-CF34-41F5-8FDD-334D03132BE4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {97D28EAD-094B-44AF-8C52-8964F66F1F70}

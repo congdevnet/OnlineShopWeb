@@ -5,7 +5,7 @@
 }
 <table id="tablerepoin" class="table table-bordered table-striped">
     <thead>
-        <tr>
+        <tr class="text-center">
             <th>Stt</th>
             <th>Tên</th>
             <th>Tiêu đề meta</th>
@@ -23,12 +23,21 @@
                 <td>@item.Name</td>
                 <td>@item.MetaTitle</td>
                 <td>@item.Description</td>
-                <td>@item.CreatedDate.ToString("dd/MM/yyyy")</td>
-                <td>@item.Status</td>
-                <td>
-                    <a title="Sửa" onclick="Edit(@item.ID)"><i class="fa fa-edit"></i></a>
-                    &nbsp; |
-                    <a title="Xóa" onclick="Delete(@item.ID)"><i class="fa fa-trash"></i></a>
+                <td class="text-center">@item.Ngaytao</td>
+                <td class="text-center">
+                    @if ((bool)item.Status)
+                    {
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked onchange="ChangCheck(@item.ID)">
+                    }
+                    else
+                    {
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" onchange="ChangCheck(@item.ID)">
+                    }
+                </td>
+                <td class="text-center">
+                    <a title="Sửa thông tin" onclick="Edit(@item.ID)" class="btn btn-sm btn-primary" href="#"><i class="fa fa-edit"></i></a>
+                    &nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;
+                    <a title="Xóa bản ghi" onclick="Delete(@item.ID)" class="btn btn-sm btn-danger" href="#"><i class="fa fa-fw fa-trash"></i></a>
                 </td>
             </tr>
         }

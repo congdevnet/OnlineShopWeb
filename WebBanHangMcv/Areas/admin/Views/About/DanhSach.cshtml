@@ -5,134 +5,195 @@
 }
 
 <!-- Content Header (Page header) -->
-<section class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1>Danh sách</h1>
-            </div>
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-                    <li class="breadcrumb-item active">Giới thiệu</li>
-                </ol>
-            </div>
-        </div>
-    </div><!-- /.container-fluid -->
-</section>
-
-<!-- Main content -->
-<section class="content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        @*<div class="card-title">*@
-                        <div class="row">
-                            <div class="col-8">
-                                <strong>Danh sách giới thiệu</strong>
-                            </div>
-                            <div class="col-4" style="text-align:right" ;>
-                                <span class="btn btn-primary" onclick="Add()">Thêm mới</span>
-                            </div>
-                        </div>
-                        @*</div>*@
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                        <div id="tablerespon">
-
-                        </div>
-                    </div>
-                    <!-- /.card-body -->
+<div id="aboutmain">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Danh sách</h1>
                 </div>
-                <!-- /.card -->
-            </div>
-            <!-- /.col -->
-        </div>
-        <!-- /.row -->
-    </div>
-    <!-- /.container-fluid -->
-</section>
-@*Modals thêm mới*@
-<div class="modal fade" id="Modalabout" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="mediumModalLabel">Medium Modal</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="tile-body" id="tile-body">
-                    <div class="form-group row">
-                        <input type="hidden" id="isid" />
-                        <label class="control-label col-md-2">Tên<span style="color:red">(*)</span></label>
-                        <div class="col-md-4">
-                            <input class="form-control" type="text" id="txtten" placeholder="Mời nhập tên">
-                        </div>
-
-                        <label class="control-label col-md-2">MetaTitle<span style="color:red">(*)</span></label>
-                        <div class="col-md-4">
-                            <input class="form-control" type="text" id="txtMetaTitle" readonly>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="control-label col-md-2">Nhập mô tả</label>
-                        <div class="col-md-4">
-                            <input class="form-control" type="text" id="txtDescription" placeholder="Nhập mô tả">
-                        </div>
-                        <label class="control-label col-md-2">Ngày tạo</label>
-                        <div class="col-md-4">
-                            <input class="form-control" type="text" id="txtCreatedDate">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="control-label col-md-2">MetaKeywords</label>
-                        <div class="col-md-10">
-                            <input class="form-control" type="email" id="txtMetaKeywords" placeholder="Nhập MetaKeywords">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="control-label col-md-2">Web</label>
-                        <div class="col-md-10">
-                            <input class="form-control" type="text" id="txtwe" placeholder="https://www.google.com.vn/">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="control-label col-md-2">Địa chỉ</label>
-                        <div class="col-md-10">
-                            <input class="form-control" type="text" id="txtdiachi" placeholder="Xã-Huyện-Tỉnh">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="control-label col-md-2">Ghi chú</label>
-                        <div class="col-md-10">
-                            <textarea class="form-control" id="txtghichu" rows="3" placeholder="Nhập ghi chú"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="control-label col-md-2">Số thứ tự</label>
-                        <div class="col-md-10">
-                            <input class="form-control" type="number" id="txtsothutu">
-                        </div>
-                    </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                        <li class="breadcrumb-item active">Giới thiệu</li>
+                    </ol>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="btnSave" onclick="save()">Confirm</button>
-                <button type="button" class="btn btn-secondary" id="btndelete" data-dismiss="modal">Hủy</button>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            @*<div class="card-title">*@
+                            <div class="row">
+                                <div class="col-8">
+                                    <strong>Danh sách giới thiệu</strong>
+                                </div>
+                                <div class="col-4" style="text-align:right" ;>
+                                    <span class="btn btn-primary" onclick="Add()">Thêm mới</span>
+                                </div>
+                            </div>
+                            @*</div>*@
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <div id="tablerespon">
+
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
             </div>
+            <!-- /.row -->
         </div>
-    </div>
+        <!-- /.container-fluid -->
+    </section>
 </div>
-<!-- /.content -->
+<div id="aboutadd">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 id="textthemmoi">Thêm mới</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                        <li class="breadcrumb-item"><a href="#">About</a></li>
+                        <li class="breadcrumb-item active" id="textthemmoinho">thêm mới</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-8">
+                                    <strong>Phần nhập thông tin</strong>
+                                </div>
+                                <div class="col-4" style="text-align:right" ;>
+                                    <span class="btn btn-danger" onclick="Closed()">Đóng</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="tile-body" id="tile-body">
+                                <div class="form-group row">
+                                    <input type="hidden" id="isid" />
+                                    <label class="control-label col-md-1">Tên<span style="color:red">(*)</span></label>
+                                    <div class="col-md-5">
+                                        <input class="form-control" type="text" id="txtten" placeholder="Mời nhập tên">
+                                    </div>
+
+                                    <label class="control-label col-md-1">MetaTitle<span style="color:red">(*)</span></label>
+                                    <div class="col-md-5">
+                                        <input class="form-control" type="text" id="txtMetaTitle" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="control-label col-md-1">Nhập mô tả</label>
+                                    <div class="col-md-5">
+                                        <input class="form-control" type="text" id="txtDescription" placeholder="Nhập mô tả">
+                                    </div>
+                                    <label class="control-label col-md-1">Ngày tạo</label>
+                                    <div class="input-group date col-md-5" id="txtCreatedDate" data-target-input="nearest">
+                                        <input type="text" class="form-control datetimepicker-input" data-target="#txtCreatedDate" id="txtCreatedDatenow" />
+                                        <div class="input-group-append" data-target="#txtCreatedDate" data-toggle="datetimepicker">
+                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                        </div>
+                                    </div>
+                                    @*<label class="control-label col-md-1">Ngày tạo</label>
+            <div class="col-md-5">
+                <input class="form-control" type="text" id="txtCreatedDate">
+            </div>*@
+                                </div>
+                                <div class="form-group row">
+                                    <label class="control-label col-md-1">MetaKeywords</label>
+                                    <div class="col-md-5">
+                                        <input class="form-control" type="text" id="txtMetaKeywords" placeholder="Nhập MetaKeywords">
+                                    </div>
+                                    <label class="control-label col-md-1">MetaDescription</label>
+                                    <div class="col-md-5">
+                                        <input class="form-control" type="text" id="txtMetaDescriptions" placeholder="Nhập MetaDescriptions">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="control-label col-md-1">Ảnh file</label>
+                                    <div class="col-md-11">
+                                        <div class="row">
+                                            <a href="#" class="btn btn-success col-md-3" id="selectimg">Thêm ảnh</a>
+                                            <input class="form-control col-md-9" type="text" id="txtImg">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="control-label col-md-1"></label>
+                                    <div class="col-md-11">
+                                        <img class="img-thumbnail" id="imgrow" style="width:100%;height:250px" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="control-label col-md-1">Nội dung</label>
+                                    <div class="col-md-11">
+                                        <textarea class="form-control" id="txtDetail" rows="15"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="txtnoibat" class="control-label col-md-1">Trạng thái</label>
+                                    <div class="col-md-4">
+                                        <input class="form-check-input" type="checkbox" id="txtStatus">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label>Disabled Result</label>
+                                    <select class="form-control select2" style="width: 100%;">
+                                        <option selected="selected">Alabama</option>
+                                        <option>Alaska</option>
+                                        <option disabled="disabled">California (disabled)</option>
+                                        <option>Delaware</option>
+                                        <option>Tennessee</option>
+                                        <option>Texas</option>
+                                        <option>Washington</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" id="btnSave" onclick="save()">Confirm</button>
+                                <button type="button" class="btn btn-secondary" onclick="Closed()">Hủy</button>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+</div>
+
 @section scripts {
     <script type="text/javascript">
         $(function () {
             LoadTable();
+            Setup();
+            Show('#aboutmain', '#aboutadd');
         });
         function LoadTable() {
             $.ajax({
@@ -147,235 +208,225 @@
 
             });
         };
-        function save() {
-        validate();
-        if (FormModalIsValid ) {
-             let From = new FormData();
-            From.append("ID", $("#isid").val());
-            From.append('Masothue', $('#txtmasothue').val());
-            From.append('tenchu', $('#txtchudautu').val());
-            From.append('nguoidaidien', $('#txtnguoidaidien').val());
-            From.append('dienthoai', $('#txtphone').val());
-            From.append('email', $('#txtemail').val());
-            From.append('web', $('#txtwe').val());
-            From.append('diachi', $('#txtdiachi').val());
-            From.append('ghichu', $('#txtghichu').val());
-            From.append('sothutu', $('#txtsothutu').val());
-
-            $.ajax({
-                url: '@Url.Action("AddNew","ChuDauTu")',
-
-                type: 'POST',
-                processData: false,
-                contentType: false,
-                cache:false,
-                data: From,
-                success: function (data) {
-
-                    if (data.isSuccess) {
-
-                        $("#ModalChuDauTu").modal("hide")
-                        LoadTable();
-                        $.notify({
-                            title: "Hoàn thành thao tác :",
-                            message: data.Message,
-                            icon: 'fa fa-check'
-                        }, {
-                                type: "success"
-                        });
-                    }
-                    else {
-                        $('#tile-body').nextAll(".spanError").remove();
-                        $('#tile-body').after('<div style="word-wrap: break-word" class="alert alert-dismissible alert-danger spanError">'+data.Message+'</div>')
-
-                    }
-
-                },
-                error: function (error) {
-                    $.notify({
-                        title: "Có lỗi xảy ra : ",
-                        message: error,
-                        icon: 'fa fa-check'
-                    }, {
-                            type: (data.isSuccess? "success":"danger")
-                        });
-                },
-
+        function Setup() {
+            $("#selectimg").on('click', function () {
+                var finder = new CKFinder();
+                finder.selectActionFunction = function (url) {
+                    $("#txtImg").val(url);
+                    $("#imgrow").attr("src", url );
+                };
+                finder.popup();
             });
+            var editor = CKEDITOR.replace('txtDetail', {
+                customConfig: '/asset/ckeditor/config.js',
+            });
+            $('#txtten').change(function () {
+                $('#txtMetaTitle').val(removeVietnameseTones($('#txtten').val()));
+            });
+            //Date picker
+            $('#txtCreatedDate').datetimepicker({
+                format: 'DD/MM/yyyy'
+            });
+            $('.select2').select2();
+        };
+        function Show(el1,el2) {
+            $(el1).show();
+            $(el2).hide();
+        };
+        function ge_today_date(date) {
+            var day = date.getDate();
+            var month = date.getMonth() + 1;
+            var year = date.getFullYear().toString().slice(2);
+            return day + '/' + month + '/' + year;
         }
-    }
-    function Add() {
-        //làm mới input
-
-        $('#txtmasothue').val("");
-        $('#txtchudautu').val("");
-        $('#txtnguoidaidien').val("");
-        $('#txtphone').val("");
-        $('#txtemail').val("");
-        $('#txtwe').val("");
-        $('#txtdiachi').val("");
-        $('#txtghichu').val("");
-        $('#txtsothutu').val("");
-
-        $('#isid').val('-1')
-        //Xóa lỗi
-        ClearError('#txtchudautu');
-        ClearError('#txtmasothue');
-        ClearError('#txtnguoidaidien');
-        ClearError('#txtdiachi');
-        ClearError('#txtemail');
-        ClearError('#txtwe');
-
-        $('#tile-body').nextAll(".spanError").remove()
-        $('#mediumModalLabel').html('Thêm mới chủ đầu tư')
-        $('#btnSave').html('Thêm mới')
-        $("#Modalabout").modal({ backdrop: "static" })
-    }
-
-    function Edit(id) {
-        $('#isid').val(id);
-        ClearError('#txtchudautu');
-        ClearError('#txtmasothue');
-        ClearError('#txtnguoidaidien');
-        ClearError('#txtdiachi');
-        ClearError('#txtemail');
-        ClearError('#txtwe');
-
-        $('#tile-body').nextAll(".spanError").remove();
-        let formData = new FormData();
-        formData.append('ID', id);
-        $.ajax({
-            url: '@Url.Action("GetObjToEdit", "ChuDauTu")',
-            data: formData,
-            type: 'POST',
-            success: function (data) {
-                if (data.cod==200) {
-                    $('#btnSave').html('Cập nhật');
-                    $('#txtmasothue').val(data.Data.MaSoThue);
-                    $('#txtchudautu').val(data.Data.TenChuDauTu );
-                    $('#txtnguoidaidien').val(data.Data.NguoiDaiDien);
-                    $('#txtphone').val(data.Data.DienThoai);
-                    $('#txtemail').val(data.Data.Email);
-                    $('#txtwe').val(data.Data.Website);
-                    $('#txtdiachi').val(data.Data.DiaChi);
-                    $('#txtghichu').val(data.Data.GhiChu);
-                    $('#txtsothutu').val(data.Data.SoThuTu);
-                    $('#mediumModalLabel').html('Chỉnh sửa chủ đầu tư')
-                    //hiện modal
-                    $("#ModalChuDauTu").modal({ backdrop: "static" })
-                }
-                else {
-                    debugger
-                    swal("Có lỗi", data.Message, "error");
-                }
-            },
-            error: function (result, textStatus, errorThrown) {
-                debugger
-                swal("Có lỗi", "Error:" + errorThrown + " - " + textStatus + " - " + result, "error");
-            },
-            cache: false,
-            processData: false,
-            contentType: false
+        function Reset() {
+            $('#txtten').val("");
+            $('#txtMetaTitle').val("");
+            $('#txtMetaKeyword').val("");
+            $('#txtDescription').val("");
+            /*$('#txtCreatedDate').val("");*/
+            $('#txtMetaKeywords').val("");
+            $('#txtMetaDescriptions').val("");
+            $("#txtCreatedDatenow").val('');
+            $('#txtImg').val("");
+            $('#imgrow').attr('src', null);
+            CKEDITOR.instances['txtDetail'].setData('');
+            $("#txtStatus").val(false);
+            ClearError('#txtten');
+            ClearError('#txtDetail');
+            $("#btnSave").text("Lưu lại");
+            $('#tile-body').nextAll(".spanError").remove();
+        };
+        var Bool = true;
+        $("#txtStatus[type='checkbox']").change(function () {
+            if ($(this).is(":checked")) {
+                Bool = true;
+            }
+            else {
+                Bool = false;
+            }
         });
-
-    }
-    function Getid(id) {
-        $('#isid').val(id);
-        $('#tile-body').nextAll(".spanError").remove();
-        let formData = new FormData();
-        formData.append('ID', id);
-        $.ajax({
-            url: '@Url.Action("GetObjToEdit", "ChuDauTu")',
-            data: formData,
-            type: 'POST',
-            success: function (data) {
-                if (data.cod==200) {
-                    $('#btnSave').html('Cập nhật');
-                    $('#txtmasothue1').text(data.Data.MaSoThue);
-                    $('#txtchudautu1').text(data.Data.TenChuDauTu);
-                    $('#txtnguoidaidien1').text(data.Data.NguoiDaiDien);
-                    $('#txtphone1').text(data.Data.DienThoai);
-                    $('#txtemail1').text(data.Data.Email);
-                    $('#txtwe1').text(data.Data.Website);
-                    $('#txtdiachi1').text(data.Data.DiaChi);
-                    $('#txtghichu1').text(data.Data.GhiChu);
-                    $('#txtsothutu1').text(data.Data.SoThuTu);
-
-                    $('#mediumModalLabel').html('Chi tiết nhà thầu')
-
-                    //hiện modal
-                    $("#modalChuDauTuDetail").modal({ backdrop: "static" });
-
-                }
-                else {
-                    debugger
-                    swal("Có lỗi", data.Message, "error");
-                }
-            },
-            error: function (result, textStatus, errorThrown) {
-                debugger
-                swal("Có lỗi", "Error:" + errorThrown + " - " + textStatus + " - " + result, "error");
-            },
-            cache: false,
-            processData: false,
-            contentType: false
-        });
-    }
-
-    function validate() {
-        FormModalIsValid = true;
-        ValidateRequireControlMaxLength("#txtchudautu", "Bạn không được nhập quá tên chủ đầu tư quá 250 ký tự", 250);
-        ValidateRequireControlMaxLength("#txtmasothue", "Bạn không được nhập quá mã số thuế quá 20 ký tự", 20);
-        ValidateRequireControlMaxLength("#txtnguoidaidien", "Bạn không được nhập quá người đại diện quá 50 ký tự", 50);
-        ValidateRequireControlMaxLength("#txtdiachi", "Bạn không được nhập quá địa chỉ quá 250 ký tự", 250);
-        ValidateRequireControlMaxLength("#txtwe", "Bạn không được nhập quá tên trang web quá 150 ký tự", 150);
-
-        var Email = $('#txtemail').val();
-        ValidateRequireControl('#txtchudautu', 'Bạn phải nhập tên chủ đầu tư');
-        if (Email !="") {
-            ValidateRequireControlEmail("#txtemail", "Bạn phải nhập đúng định dạng gmail");
-            ValidateRequireControlMaxLength("#txtemail", "Bạn không được nhập quá tên gmail quá 150 ký tự", 150);
+        function Closed() {
+            Show('#aboutmain', '#aboutadd');
+        };
+        function validate() {
+            FormModalIsValid = true;
+            ValidateRequireControl('#txtten', 'Bạn phải nhập trường này!');
+            ValidateRequireControlMaxLength("#txtten", "Bạn không được nhập quá tên chủ đầu tư quá 256 ký tự", 256);
+        };
+        function Get() {
+            var Data = {
+                ID: $("#isid").val(),
+                Name: $('#txtten').val(),
+                MetaTitle: $('#txtMetaTitle').val(),
+                Description: $('#txtDescription').val(),
+                Image: $('#txtImg').val(),
+                Detail: CKEDITOR.instances['txtDetail'].getData(),
+                CreatedDate: $("#txtCreatedDatenow").val() != "" ?
+                $("#txtCreatedDatenow").val() : new Date(),
+                CreatedBy: null,
+                ModifiedDate: null,
+                ModifiedBy: null,
+                MetaKeywords: $('#txtMetaKeywords').val(),
+                MetaDescriptions: $('#txtMetaDescriptions').val(),
+                Status:Bool
+            };
+            return Data;
+        };
+        function set(Obj) {
+            ID: $("#isid").val(Obj.ID);
+            Name: $('#txtten').val(Obj.Name);
+            MetaTitle: $('#txtMetaTitle').val(Obj.MetaTitle);
+            Description: $('#txtDescription').val(Obj.Description);
+            Image: $('#txtImg').val(Obj.Image);
+            CKEDITOR.instances['txtDetail'].setData(Obj.Detail);
+            CreatedDate: $("#txtCreatedDatenow").val(Obj.Ngaytao)
+            CreatedBy: null;
+            ModifiedDate: null;
+            ModifiedBy: null;
+            MetaKeywords: $('#txtMetaKeywords').val(Obj.MetaKeywords);
+            MetaDescriptions: $('#txtMetaDescriptions').val(Obj.MetaDescriptions);
+            $("#txtStatus").prop('checked', Obj.Status);
+            $('#imgrow').attr('src', Obj.Image);
         }
-
-    }
-
-    function Delete(id) {
-        swal({
-            title: "Bạn có chắc muốn xóa?",
-            text: "Bạn sẽ không thể phục hồi lại chủ đàu tư này!",
-            showCancelButton: true,
-            confirmButtonText: "Đồng ý",
-            cancelButtonText: "Hủy bỏ",
-            closeOnConfirm: false,
-            closeOnCancel: true
-        }, function (isConfirm) {
-                if (isConfirm) {
-                let formData = new FormData();
-                formData.append('ID', id);
+        function Add() {
+            Show('#aboutadd', '#aboutmain');
+            Reset();
+            $("#isid").val("-1");
+        };
+        function save() {
+        var Obj = Get();
+            validate()
+            if (FormModalIsValid) {
                 $.ajax({
-                    url: '@Url.Action("delete", "ChuDauTu")',
-                    data: formData,
-                    type: 'POST',
-                    success: function (data) {
-                        if (data.isSuccess) {
-                            swal("Đã xóa!", data.Message, "success");
-                            LoadTable()
-                        }
-                        else {
-                            swal("Không xóa được chủ đầu tư này", data.Message,"error");
-                        }
-                    },
-                    error: function (error) {
-                        swal("Có lỗi", error,"error");
-                    },
-                    cache: false,
+                    url: '@Url.Action("AddandEdit", "About")',
+                    dataType: "json",
+                    type: "POST",
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify({ AboutDtos: Obj }),
+                    async: true,
                     processData: false,
-                    contentType: false
+                    cache: false,
+                    success: function (data) {
+                        if (data.Status == 200) {
+                            toastr.success(data.Mes);
+                            Closed();
+                            LoadTable();
+                        }
+                    },
+                    error: function (xhr) {
+                        alert(xhr);
+                    }
                 });
+            }
+        };
+        function Edit(id) {
+                $.ajax({
+                    url: '@Url.Action("GetObjById", "About")',
+                    dataType: "json",
+                    type: "POST",
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify({ id: id }),
+                    async: true,
+                    processData: false,
+                    cache: false,
+                    success: function (data) {
+                        console.log(data.Data);
+                        if (data.Status == 200) {
+                            $('#btnSave').html('Cập nhật');
+                            $('#textthemmoi').html('Chỉnh sửa');
+                            $('#textthemmoinho').html('Chỉnh sửa');
 
+                            Show('#aboutadd', '#aboutmain');
+                            set(data.Data);
+                        }
+                    },
+                    error: function (xhr) {
+                        alert('error');
+                    }
+                });
+        };
+        function Delete(id) {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+            swalWithBootstrapButtons.fire({
+                title: 'Bạn có chắc không?',
+                text: "Bạn sẽ không thể khôi phục được dữ liệu!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Có, xóa nó!',
+                cancelButtonText: 'Không, hủy bỏ!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                     $.ajax({
+                            url: "@Url.Action("Delete", "About")",
+                            type: "GET",
+                            data: {id:id},
+                            cache: false,
+                         success: function (data) {
+                             LoadTable();
+                                swalWithBootstrapButtons.fire(
+                                    'Đã xóa!',
+                                    'Tệp của bạn đã bị xóa.',
+                                    'success'
+                                )
+                            },
+                            error: function (xhr) {
+                                Swal.fire(xhr);
+                            }
+                     });
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire(
+                        'Đã hủy',
+                        'Tệp của bạn an toàn!',
+                        'error'
+                    )
                 }
-        });
-    }
+            })
+        };
+        function ChangCheck(id) {
+            $.ajax({
+                 url: "@Url.Action("ChangCheck", "About")",
+                 type: "POST",
+                 data: {id:id},
+                 cache: false,
+                 success: function (data) {
+                     toastr.success(data.Mes);
+                     LoadTable();
+                 },
+                 error: function (xhr) {
+                     Swal.fire(xhr);
+                 }});
+        }
     </script>
 }
 

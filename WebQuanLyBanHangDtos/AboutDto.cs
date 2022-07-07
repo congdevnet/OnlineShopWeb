@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web.Mvc;
 
 namespace WebQuanLyBanHangDtos
 {
@@ -10,8 +11,9 @@ namespace WebQuanLyBanHangDtos
         public string MetaTitle { get; set; }
         public string Description { get; set; }
         public string Image { get; set; }
-        public string Detail { get; set; }
+        [AllowHtml] public string Detail { get; set; }
         public DateTime CreatedDate { get; set; }
+        public string  Ngaytao { get; set; }
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> ModifiedDate { get; set; }
         public string ModifiedBy { get; set; }

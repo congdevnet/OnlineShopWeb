@@ -1,0 +1,12 @@
+E:\OnlineShopWeb\WebQuanLayBanHangEntityFramework\bin\Release\WebQuanLayBanHangEntityFramework.dll.config
+E:\OnlineShopWeb\WebQuanLayBanHangEntityFramework\bin\Release\WebQuanLayBanHangEntityFramework.dll
+E:\OnlineShopWeb\WebQuanLayBanHangEntityFramework\bin\Release\WebQuanLayBanHangEntityFramework.pdb
+E:\OnlineShopWeb\WebQuanLayBanHangEntityFramework\bin\Release\EntityFramework.dll
+E:\OnlineShopWeb\WebQuanLayBanHangEntityFramework\bin\Release\EntityFramework.SqlServer.dll
+E:\OnlineShopWeb\WebQuanLayBanHangEntityFramework\bin\Release\EntityFramework.xml
+E:\OnlineShopWeb\WebQuanLayBanHangEntityFramework\bin\Release\EntityFramework.SqlServer.xml
+E:\OnlineShopWeb\WebQuanLayBanHangEntityFramework\obj\Release\WebQuanLayBanHangEntityFramework.csproj.AssemblyReference.cache
+E:\OnlineShopWeb\WebQuanLayBanHangEntityFramework\obj\Release\WebQuanLayBanHangEntityFramework.csproj.CoreCompileInputs.cache
+E:\OnlineShopWeb\WebQuanLayBanHangEntityFramework\obj\Release\WebQuanLayBanHangEntityFramework.csproj.CopyComplete
+E:\OnlineShopWeb\WebQuanLayBanHangEntityFramework\obj\Release\WebQuanLayBanHangEntityFramework.dll
+E:\OnlineShopWeb\WebQuanLayBanHangEntityFramework\obj\Release\WebQuanLayBanHangEntityFramework.pdb
