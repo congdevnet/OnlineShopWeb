@@ -4,6 +4,8 @@ namespace WebQuanLyBanHangDtos
 {
     public class ContentDto
     {
+        public int  Stt { get; set; }
+
         public long ID { get; set; }
         public string Name { get; set; }
         public string MetaTitle { get; set; }
@@ -23,5 +25,6 @@ namespace WebQuanLyBanHangDtos
         public Nullable<int> ViewCount { get; set; }
         public string Tags { get; set; }
         public string Language { get; set; }
+        public string Ngaytao { get; set; }
     }
 }

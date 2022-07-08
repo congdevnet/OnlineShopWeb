@@ -1,0 +1,411 @@
+﻿<div id="contentmain">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Danh sách</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                        <li class="breadcrumb-item active">Bài viết</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            @*<div class="card-title">*@
+                            <div class="row">
+                                <div class="col-8">
+                                    <strong>Danh sách Bài viết</strong>
+                                </div>
+                                <div class="col-4" style="text-align:right" ;>
+                                    <span class="btn btn-primary" onclick="Add()">Thêm mới</span>
+                                </div>
+                            </div>
+                            @*</div>*@
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <div id="tablerespon">
+
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+</div>
+<div id="contentadd">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 id="textthemmoi">Thêm mới</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                        <li class="breadcrumb-item"><a href="#">Bài viết</a></li>
+                        <li class="breadcrumb-item active" id="textthemmoinho">thêm mới</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-8">
+                                    <strong>Phần nhập thông tin</strong>
+                                </div>
+                                <div class="col-4" style="text-align:right" ;>
+                                    <span class="btn btn-danger" onclick="Closed()">Đóng</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="tile-body" id="tile-body">
+                                <div class="form-group row">
+                                    <input type="hidden" id="isid" />
+                                    <label class="control-label col-md-2">Tên<span style="color:red">(*)</span></label>
+                                    <div class="col-md-4">
+                                        <input class="form-control" type="text" id="txtten" placeholder="Mời nhập tên">
+                                    </div>
+
+                                    <label class="control-label col-md-2">MetaTitle<span style="color:red">(*)</span></label>
+                                    <div class="col-md-4">
+                                        <input class="form-control" type="text" id="txtMetaTitle" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="control-label col-md-1">Nhập mô tả</label>
+                                    <div class="col-md-5">
+                                        <input class="form-control" type="text" id="txtDescription" placeholder="Nhập mô tả">
+                                    </div>
+                                    <label class="control-label col-md-1">Ngày tạo</label>
+                                    <div class="input-group date col-md-5" id="txtCreatedDate" data-target-input="nearest">
+                                        <input type="text" class="form-control datetimepicker-input" data-target="#txtCreatedDate" id="txtCreatedDatenow" />
+                                        <div class="input-group-append" data-target="#txtCreatedDate" data-toggle="datetimepicker">
+                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-group row">
+                                    <label class="control-label col-md-1">MetaKeywords</label>
+                                    <div class="col-md-5">
+                                        <input class="form-control" type="text" id="txtMetaKeywords" placeholder="Nhập MetaKeywords">
+                                    </div>
+                                    <label class="control-label col-md-1">MetaDescription</label>
+                                    <div class="col-md-5">
+                                        <input class="form-control" type="text" id="txtMetaDescriptions" placeholder="Nhập MetaDescriptions">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="control-label col-md-1">Ảnh file</label>
+                                    <div class="col-md-11">
+                                        <div class="row">
+                                            <a href="#" class="btn btn-success col-md-3" id="selectimg">Thêm ảnh</a>
+                                            <input class="form-control col-md-9" type="text" id="txtImg">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="control-label col-md-1"></label>
+                                    <div class="col-md-11">
+                                        <img class="img-thumbnail" id="imgrow" style="width:100%;height:250px" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="control-label col-md-1">Nội dung</label>
+                                    <div class="col-md-11">
+                                        <textarea class="form-control" id="txtDetail" rows="15"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="txtnoibat" class="control-label col-md-1">Trạng thái</label>
+                                    <div class="col-md-4">
+                                        <input class="form-check-input" type="checkbox" id="txtStatus">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" id="btnSave" onclick="save()">Confirm</button>
+                                <button type="button" class="btn btn-secondary" onclick="Closed()">Hủy</button>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        $(function () {
+            LoadTable();
+            Setup();
+            Show('#contentmain', '#contentadd');
+        });
+        function LoadTable() {
+            $.ajax({
+                url: '@Url.Action("Index","About")',
+                type: 'GET',
+            }).done(function (data) {
+                $('#tablerespon').html(data);
+                $("#tablerepoin").DataTable({
+                    "responsive": true, "lengthChange": false, "autoWidth": false,
+                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+                }).buttons().container().appendTo('#tablerepoin_wrapper .col-md-6:eq(0)');
+
+            });
+        };
+        function Setup() {
+            $("#selectimg").on('click', function () {
+                var finder = new CKFinder();
+                finder.selectActionFunction = function (url) {
+                    $("#txtImg").val(url);
+                    $("#imgrow").attr("src", url );
+                };
+                finder.popup();
+            });
+            var editor = CKEDITOR.replace('txtDetail', {
+                customConfig: '/asset/ckeditor/config.js',
+            });
+            $('#txtten').change(function () {
+                $('#txtMetaTitle').val(removeVietnameseTones($('#txtten').val()));
+            });
+            //Date picker
+            $('#txtCreatedDate').datetimepicker({
+                format: 'MM/DD/yyyy'
+            });
+            $('.select2').select2();
+        };
+        function Show(el1,el2) {
+            $(el1).show();
+            $(el2).hide();
+        };
+        function ge_today_date(date) {
+            var day = date.getDate();
+            var month = date.getMonth() + 1;
+            var year = date.getFullYear().toString().slice(2);
+            return day + '/' + month + '/' + year;
+        }
+        function Reset() {
+            $('#txtten').val("");
+            $('#txtMetaTitle').val("");
+            $('#txtMetaKeyword').val("");
+            $('#txtDescription').val("");
+            /*$('#txtCreatedDate').val("");*/
+            $('#txtMetaKeywords').val("");
+            $('#txtMetaDescriptions').val("");
+            $("#txtCreatedDatenow").val('');
+            $('#txtImg').val("");
+            $('#imgrow').attr('src', null);
+            CKEDITOR.instances['txtDetail'].setData('');
+            $("#txtStatus").val(false);
+            ClearError('#txtten');
+            ClearError('#txtDetail');
+            $("#btnSave").text("Lưu lại");
+            $('#tile-body').nextAll(".spanError").remove();
+        };
+        var Bool = true;
+        $("#txtStatus[type='checkbox']").change(function () {
+            if ($(this).is(":checked")) {
+                Bool = true;
+            }
+            else {
+                Bool = false;
+            }
+        });
+        function Closed() {
+            Show('#aboutmain', '#aboutadd');
+        };
+        function validate() {
+            FormModalIsValid = true;
+            ValidateRequireControl('#txtten', 'Bạn phải nhập trường này!');
+            ValidateRequireControlMaxLength("#txtten", "Bạn không được nhập quá tên chủ đầu tư quá 256 ký tự", 256);
+        };
+        function Get() {
+            var Data = {
+                ID: $("#isid").val(),
+                Name: $('#txtten').val(),
+                MetaTitle: $('#txtMetaTitle').val(),
+                Description: $('#txtDescription').val(),
+                Image: $('#txtImg').val(),
+                Detail: CKEDITOR.instances['txtDetail'].getData(),
+                CreatedDate: $("#txtCreatedDatenow").val() != "" ? $("#txtCreatedDatenow").val() : new Date(),
+                CreatedBy: null,
+                ModifiedDate: new Date(),
+                ModifiedBy: null,
+                MetaKeywords: $('#txtMetaKeywords').val(),
+                MetaDescriptions: $('#txtMetaDescriptions').val(),
+                Status:Bool
+            };
+            return Data;
+        };
+        function set(Obj) {
+            ID: $("#isid").val(Obj.ID);
+            Name: $('#txtten').val(Obj.Name);
+            MetaTitle: $('#txtMetaTitle').val(Obj.MetaTitle);
+            Description: $('#txtDescription').val(Obj.Description);
+            Image: $('#txtImg').val(Obj.Image);
+            CKEDITOR.instances['txtDetail'].setData(Obj.Detail);
+            CreatedDate: $("#txtCreatedDatenow").val(Obj.Ngaytao)
+            CreatedBy: null;
+            ModifiedDate: new Date();
+            ModifiedBy: null;
+            MetaKeywords: $('#txtMetaKeywords').val(Obj.MetaKeywords);
+            MetaDescriptions: $('#txtMetaDescriptions').val(Obj.MetaDescriptions);
+            $("#txtStatus").prop('checked', Obj.Status);
+            $('#imgrow').attr('src', Obj.Image);
+        }
+        function Add() {
+            Show('#contentadd', '#contentmain');
+            Reset();
+            $("#isid").val("-1");
+        };
+        function save() {
+            debugger
+        var Obj = Get();
+            validate()
+            if (FormModalIsValid) {
+                $.ajax({
+                    url: '@Url.Action("AddandEdit", "About")',
+                    dataType: "json",
+                    type: "POST",
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify({ AboutDtos: Obj }),
+                    async: true,
+                    processData: false,
+                    cache: false,
+                    success: function (data) {
+                        if (data.Status == 200) {
+                            toastr.success(data.Mes);
+                            Closed();
+                            LoadTable();
+                        }
+                    },
+                    error: function (xhr) {
+                        alert(xhr);
+                    }
+                });
+            }
+        };
+        function Edit(id) {
+                $.ajax({
+                    url: '@Url.Action("GetObjById", "About")',
+                    dataType: "json",
+                    type: "POST",
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify({ id: id }),
+                    async: true,
+                    processData: false,
+                    cache: false,
+                    success: function (data) {
+                        console.log(data.Data);
+                        if (data.Status == 200) {
+                            $('#btnSave').html('Cập nhật');
+                            $('#textthemmoi').html('Chỉnh sửa');
+                            $('#textthemmoinho').html('Chỉnh sửa');
+
+                            Show('#contentadd', '#contentmain');
+                            set(data.Data);
+                        }
+                    },
+                    error: function (xhr) {
+                        alert('error');
+                    }
+                });
+        };
+        function Delete(id) {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+            swalWithBootstrapButtons.fire({
+                title: 'Bạn có chắc không?',
+                text: "Bạn sẽ không thể khôi phục được dữ liệu!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Có, xóa nó!',
+                cancelButtonText: 'Không, hủy bỏ!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                     $.ajax({
+                            url: "@Url.Action("Delete", "About")",
+                            type: "GET",
+                            data: {id:id},
+                            cache: false,
+                         success: function (data) {
+                             LoadTable();
+                                swalWithBootstrapButtons.fire(
+                                    'Đã xóa!',
+                                    'Tệp của bạn đã bị xóa.',
+                                    'success'
+                                )
+                            },
+                            error: function (xhr) {
+                                Swal.fire(xhr);
+                            }
+                     });
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire(
+                        'Đã hủy',
+                        'Tệp của bạn an toàn!',
+                        'error'
+                    )
+                }
+            })
+        };
+        function ChangCheck(id) {
+            $.ajax({
+                 url: "@Url.Action("ChangCheck", "About")",
+                 type: "POST",
+                 data: {id:id},
+                 cache: false,
+                 success: function (data) {
+                     toastr.success(data.Mes);
+                     LoadTable();
+                 },
+                 error: function (xhr) {
+                     Swal.fire(xhr);
+                 }});
+        }
+    </script>
+}
+
+

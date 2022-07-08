@@ -3342,6 +3342,8 @@
     <Content Include="Areas\admin\Views\ProductCategory\DanhSach.cshtml" />
     <Content Include="Areas\admin\Views\Product\Index.cshtml" />
     <Content Include="Areas\admin\Views\Product\DanhSach.cshtml" />
+    <Content Include="Areas\admin\Views\Content\Index.cshtml" />
+    <Content Include="Areas\admin\Views\Content\DanhSach.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -3371,7 +3373,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\admin\Data\" />
-    <Folder Include="Areas\admin\Views\Content\" />
     <Folder Include="Areas\admin\Views\MenuType\" />
     <Folder Include="Areas\admin\Views\Menu\" />
   </ItemGroup>
