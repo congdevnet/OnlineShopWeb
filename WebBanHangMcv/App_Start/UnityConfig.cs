@@ -3,6 +3,20 @@ using System;
 using Unity;
 using WebBanHangMcv.Models;
 using WebBanHangMcv.Services.AboutService;
+using WebBanHangMcv.Services.CategoryService;
+using WebBanHangMcv.Services.ContactService;
+using WebBanHangMcv.Services.ContentService;
+using WebBanHangMcv.Services.ContentTagService;
+using WebBanHangMcv.Services.FeedbackServices;
+using WebBanHangMcv.Services.FooterServices;
+using WebBanHangMcv.Services.LanguageServices;
+using WebBanHangMcv.Services.MenuServices;
+using WebBanHangMcv.Services.MenuTypeServices;
+using WebBanHangMcv.Services.OrderDetailServices;
+using WebBanHangMcv.Services.OrderSrevices;
+using WebBanHangMcv.Services.ProductCategorySrevices;
+using WebBanHangMcv.Services.ProductServices;
+using WebBanHangMcv.Services.UserSrevices;
 using WebQuanLayBanHangEntityFramework;
 
 namespace WebBanHangMcv
@@ -51,6 +65,24 @@ namespace WebBanHangMcv
             container.RegisterType(typeof(IGenericService<>), typeof(GenericService<>));
 
             container.RegisterType<IAboutService, AboutServices>();
+            container.RegisterType<ICategoryServices, CategoryService>();
+            container.RegisterType<IContactService, ContactServices>();
+
+            container.RegisterType<IContentService, ContentServices>();
+            container.RegisterType<IContentTagServices, ContentTagServices>();
+            container.RegisterType<IFeedbackServices, FeedbackService>();
+
+            container.RegisterType<IFooterSrevices, FooterSrevice>();
+            container.RegisterType<ILanguageServices, LanguageService>();
+            container.RegisterType<IMenuServices, MenuService>();
+
+            container.RegisterType<IMenuTypeServices, MenuTypeServices>();
+            container.RegisterType<IOrderDetailServices, OrderDetailService>();
+            container.RegisterType<IOrderSrevices, OrderSrevice>();
+
+            container.RegisterType<IProductCategorySrevices, ProductCategorySrevice>();
+            container.RegisterType<IProducSrevices, ProductSercie>();
+            container.RegisterType<IUserSercies, UserSercie>();
         }
     }
 }

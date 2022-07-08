@@ -19,11 +19,11 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.Stt</td>
+                <td class="text-center">@item.Stt</td>
                 <td>@item.Name</td>
                 <td>@item.MetaTitle</td>
                 <td>@item.Description</td>
-                <td class="text-center">@item.Ngaytao</td>
+                <td class="text-center">@item.CreatedDate.Value.ToString("dd/MM/yyyy")</td>
                 <td class="text-center">
                     @if ((bool)item.Status)
                     {

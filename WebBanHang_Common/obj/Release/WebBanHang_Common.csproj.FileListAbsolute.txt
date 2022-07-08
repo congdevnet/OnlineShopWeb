@@ -3,3 +3,4 @@ E:\OnlineShopWeb\WebBanHang_Common\bin\Release\WebBanHang_Common.pdb
 E:\OnlineShopWeb\WebBanHang_Common\obj\Release\WebBanHang_Common.csproj.CoreCompileInputs.cache
 E:\OnlineShopWeb\WebBanHang_Common\obj\Release\WebBanHang_Common.dll
 E:\OnlineShopWeb\WebBanHang_Common\obj\Release\WebBanHang_Common.pdb
+E:\OnlineShopWeb\WebBanHang_Common\obj\Release\WebBanHang_Common.csproj.AssemblyReference.cache

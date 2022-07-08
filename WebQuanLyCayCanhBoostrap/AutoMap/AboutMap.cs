@@ -21,7 +21,7 @@ namespace WebQuanLyCayCanhBoostrap.AutoMap
             .ForMember(des => des.ModifiedBy, mos => mos.MapFrom(mo => mo.ModifiedBy))
             .ForMember(des => des.ModifiedDate, mos => mos.MapFrom(mo => mo.ModifiedDate))
             .ForMember(des => des.Name, mos => mos.MapFrom(mo => mo.Name))
-            .ForMember(des => des.Ngaytao, mos => mos.MapFrom(mo => mo.CreatedDate.Value.ToString("dd/MM/yyyy")))
+            //.ForMember(des => des.Ngaytao, mos => mos.MapFrom(mo => mo.CreatedDate.Value.ToString("dd/MM/yyyy")))
             .ForMember(des => des.Status, mos => mos.MapFrom(mo => mo.Status));
 
             Mapper.CreateMap<AboutDto, About>()

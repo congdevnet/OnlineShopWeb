@@ -4,6 +4,7 @@ namespace WebQuanLyBanHangDtos
 {
     public class ProductCategoryDto
     {
+        public int Stt { get; set; }
         public long ID { get; set; }
         public string Name { get; set; }
         public string MetaTitle { get; set; }
@@ -18,5 +19,6 @@ namespace WebQuanLyBanHangDtos
         public string MetaDescriptions { get; set; }
         public Nullable<bool> Status { get; set; }
         public Nullable<bool> ShowOnHome { get; set; }
+        public string Ngaytao { get; set; }
     }
 }

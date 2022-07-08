@@ -12,7 +12,7 @@ namespace WebQuanLyBanHangDtos
         public string Description { get; set; }
         public string Image { get; set; }
         [AllowHtml] public string Detail { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
         public string  Ngaytao { get; set; }
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> ModifiedDate { get; set; }

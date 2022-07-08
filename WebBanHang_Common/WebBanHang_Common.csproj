@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CodeRes.cs" />
     <Compile Include="JsonData.cs" />
     <Compile Include="JsonRespon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -8,6 +8,7 @@ namespace WebQuanLyBanHangDtos
 {
     public class ProductDto
     {
+        public int Stt { get; set; }
         public long ID { get; set; }
         public string Name { get; set; }
         public string Code { get; set; }
@@ -31,5 +32,7 @@ namespace WebQuanLyBanHangDtos
         public Nullable<bool> Status { get; set; }
         public Nullable<System.DateTime> TopHot { get; set; }
         public Nullable<int> ViewCount { get; set; }
+        public string Ngaytao { get; set; }
+        public string NgaySale { get; set; }
     }
 }

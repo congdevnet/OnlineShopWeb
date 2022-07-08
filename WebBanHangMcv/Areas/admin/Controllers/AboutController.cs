@@ -25,7 +25,7 @@ namespace WebBanHangMcv.Areas.admin.Controllers
             var Data = _iaboutService.All<AboutDto>().ToList();
             foreach (var item in Data)
             {
-                item.Stt += Index++;
+                item.Stt += Index+1;
             }
 
             return View(Data);
@@ -41,6 +41,7 @@ namespace WebBanHangMcv.Areas.admin.Controllers
         public JsonResult GetObjById(int id)
         {
             var data = _iaboutService.Find<AboutDto>(id);
+            data.Ngaytao = data.CreatedDate.Value.ToString("dd/MM/yyyy");
             return Json(new JsonData<AboutDto>(200, data), JsonRequestBehavior.AllowGet);
         }
 
