@@ -4,6 +4,7 @@ namespace WebQuanLyBanHangDtos
 {
     public class FeedbackDto
     {
+        public int Stt { get; set; }
         public int ID { get; set; }
         public string Name { get; set; }
         public string Phone { get; set; }
@@ -12,5 +13,6 @@ namespace WebQuanLyBanHangDtos
         public string Content { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public Nullable<bool> Status { get; set; }
+        public string Ngaytao { get; set; }
     }
 }
