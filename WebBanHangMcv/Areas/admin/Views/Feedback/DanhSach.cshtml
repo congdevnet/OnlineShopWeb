@@ -1,0 +1,193 @@
+﻿@{
+    ViewBag.Title = "DanhSach";
+    Layout = "~/Areas/admin/Views/Shared/Layout.cshtml";
+}
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Danh sách</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                    <li class="breadcrumb-item active">Phản hồi</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        @*<div class="card-title">*@
+                        <div class="row">
+                            <div class="col-8">
+                                <strong>Danh sách Phản hồi</strong>
+                            </div>
+                            <div class="col-4" style="text-align:right" ;>
+                                <span class="btn btn-primary" onclick="Add()">Thêm mới</span>
+                            </div>
+                        </div>
+                        @*</div>*@
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div id="tablerespon">
+
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</section>
+
+@*Modals thêm mới*@
+<div class="modal fade" id="Modalphanhoi" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mediumModalLabel">Medium Modal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="tile-body" id="tile-body">
+                    <div class="form-group row">
+                        <input type="hidden" id="isid" />
+                        <label class="control-label col-md-2">Tên<span style="color:red">(*)</span></label>
+                        <div class="col-md-4">
+                            <input class="form-control" type="text" id="txtName" placeholder="Nhập tên">
+                        </div>
+                        <label class="control-label col-md-2">Phone<span style="color:red">(*)</span></label>
+                        <div class="col-md-4">
+                            <input class="form-control" type="text" id="txtPhone" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-md-2">Email</label>
+                        <div class="col-md-4">
+                            <input class="form-control" type="email" min="1" id="txtEmail">
+                        </div>
+                        <label class="control-label col-md-2">Address</label>
+                        <div class="col-md-4">
+                            <input class="form-control" type="text" min="1" id="txtAddress">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-md-2">Nội dung</label>
+                        <div class="col-md-10">
+                            <textarea class="form-control" id="txtContent" rows="6"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="txtStatus" class="control-label col-md-3">Trạng thái</label>
+                        <div class="col-md-3">
+                            <input class="form-check-input" type="checkbox" id="txtStatus">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="btndelete" data-dismiss="modal">Hủy</button>
+            </div>
+        </div>
+    </div>
+</div>
+@*End Modal thêm mới*@
+@section scripts {
+    <script type="text/javascript">
+        $(function () {
+            LoadTable();
+        });
+        function LoadTable() {
+            $.ajax({
+                url: '@Url.Action("Index", "Feedback")',
+                type: 'GET',
+            }).done(function (data) {
+                $('#tablerespon').html(data);
+                $("#tablerepoin").DataTable({
+                    "responsive": true, "lengthChange": false, "autoWidth": false,
+                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+                }).buttons().container().appendTo('#tablerepoin_wrapper .col-md-6:eq(0)');
+
+            });
+        };
+        function set(Obj) {
+            $("#isid").val(Obj.ID);
+            $('#txtName').val(Obj.Name);
+            $('#txtPhone').val(Obj.Phone);
+            $('#txtEmail').val(Obj.Email);
+            $('#txtAddress').val(Obj.Address);
+            $('#txtContent').val(Obj.Content);
+            $("#txtStatus").prop('checked', Obj.Status);
+        };
+        var Bool = true;
+        $("#txtStatus[type='checkbox']").change(function () {
+            if ($(this).is(":checked")) {
+                Bool = true;
+            }
+            else {
+                Bool = false;
+            }
+        });
+       
+        function Edit(id) {
+                $.ajax({
+                    url: '@Url.Action("GetObjById", "Feedback")',
+                    dataType: "json",
+                    type: "POST",
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify({ id: id }),
+                    async: true,
+                    processData: false,
+                    cache: false,
+                    success: function (data) {
+                        console.log(data.Data);
+                        if (data.Status == 200) {
+                            $('#btnSave').html('Cập nhật');
+                            $('#textthemmoi').html('Chỉnh sửa');
+                            $('#textthemmoinho').html('Chỉnh sửa');
+                            $('#mediumModalLabel').html('Chỉnh sửa')
+                            //hiện modal
+                            $("#Modalphanhoi").modal({ backdrop: "static" })
+
+                            set(data.Data);
+                        }
+                    },
+                    error: function (xhr) {
+                        alert('error');
+                    }
+                });
+        };
+        function ChangCheck(id) {
+            $.ajax({
+                 url: "@Url.Action("ChangCheck", "MenuType")",
+                 type: "POST",
+                 data: {id:id},
+                 cache: false,
+                 success: function (data) {
+                     toastr.success(data.Mes);
+                     LoadTable();
+                 },
+                 error: function (xhr) {
+                     Swal.fire(xhr);
+                 }});
+        }
+    </script>
+}
+
+
+
+

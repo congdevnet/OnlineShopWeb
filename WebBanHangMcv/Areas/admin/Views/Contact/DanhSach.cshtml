@@ -1,0 +1,136 @@
+﻿
+@{
+    ViewBag.Title = "DanhSach";
+    Layout = "~/Areas/admin/Views/Shared/Layout.cshtml";
+}
+
+<!-- Content Header (Page header) -->
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Danh sách</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                    <li class="breadcrumb-item active"></li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        @*<div class="card-title">*@
+                        <div class="row">
+                            <div class="col-8">
+                                <strong>Danh sách giới thiệu</strong>
+                            </div>
+                            <div class="col-4" style="text-align:right" ;>
+                                <span class="btn btn-primary" onclick="Add()">Thêm mới</span>
+                            </div>
+                        </div>
+                        @*</div>*@
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div id="tablerespon">
+
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</section>
+<div class="modal fade" id="ModalContact" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mediumModalLabel">Medium Modal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="tile-body" id="tile-body">
+                    <div class="form-group row">
+                        <input type="hidden" id="isid" />
+                        <label class="control-label col-md-2">Phản hồi<span style="color:red">(*)</span></label>
+                        <div class="col-md-10">
+                            <input class="form-control" type="text" id="txtContent">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="btndelete" data-dismiss="modal">Hủy</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+    <script type="text/javascript">
+        $(function () {
+            LoadTable();
+        });
+        function LoadTable() {
+            $.ajax({
+                url: '@Url.Action("Index","Contact")',
+                type: 'GET',
+            }).done(function (data) {
+                $('#tablerespon').html(data);
+                $("#tablerepoin").DataTable({
+                    "responsive": true, "lengthChange": false, "autoWidth": false,
+                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+                }).buttons().container().appendTo('#tablerepoin_wrapper .col-md-6:eq(0)');
+
+            });
+        };
+        function Add() {
+            $("#ModalContact").modal({ backdrop: "static" })
+        };
+        function Edit(id) {
+                $.ajax({
+                    url: '@Url.Action("GetObjById", "Contact")',
+                    dataType: "json",
+                    type: "POST",
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify({ id: id }),
+                    async: true,
+                    processData: false,
+                    cache: false,
+                    success: function (data) {
+                        console.log(data.Data);
+                        if (data.Status == 200) {
+                            $('#btnSave').html('Cập nhật');
+                            $('#textthemmoi').html('Xem chi tiết');
+                            $('#textthemmoinho').html('Chi tiết');
+
+                            $('#txtContent').val(data.Content);
+                            $("#ModalContact").modal({ backdrop: "static" });
+                        }
+                    },
+                    error: function (xhr) {
+                        alert('error');
+                    }
+                });
+        };
+    </script>
+}
+
+
