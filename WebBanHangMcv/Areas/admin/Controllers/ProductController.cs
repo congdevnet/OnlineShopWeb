@@ -31,6 +31,7 @@ namespace WebBanHangMcv.Areas.admin.Controllers
             foreach (var item in Data)
             {
                 item.Stt += Index + 1;
+                item.CategoryName = _IProductCategorySrevices.Find<ProductCategoryDto>(item.CategoryID).Name;
             }
 
             return View(Data);

@@ -31,6 +31,7 @@ namespace WebBanHangMcv.Areas.admin.Controllers
             foreach (var item in Data)
             {
                 item.Stt = Index + 1;
+                item.TypeName = _IMenuTypeSrevices.Find<MenuTypeDto>(item.TypeID).Name;
             }
 
             return View(Data);

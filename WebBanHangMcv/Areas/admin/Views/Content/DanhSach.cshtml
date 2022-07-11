@@ -1,4 +1,9 @@
-﻿<div id="contentmain">
+﻿@{
+    ViewBag.Title = "DanhSach";
+    Layout = "~/Areas/admin/Views/Shared/Layout.cshtml";
+}
+<!-- Content Header (Page header) -->
+<div id="Contentmain">
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -49,7 +54,7 @@
         <!-- /.container-fluid -->
     </section>
 </div>
-<div id="contentadd">
+<div id="Contentadd">
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -89,7 +94,7 @@
                                     <input type="hidden" id="isid" />
                                     <label class="control-label col-md-2">Tên<span style="color:red">(*)</span></label>
                                     <div class="col-md-4">
-                                        <input class="form-control" type="text" id="txtten" placeholder="Mời nhập tên">
+                                        <input class="form-control" type="text" id="txtName" placeholder="Mời nhập tên">
                                     </div>
 
                                     <label class="control-label col-md-2">MetaTitle<span style="color:red">(*)</span></label>
@@ -98,26 +103,38 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="control-label col-md-1">Nhập mô tả</label>
-                                    <div class="col-md-5">
-                                        <input class="form-control" type="text" id="txtDescription" placeholder="Nhập mô tả">
+                                    <label class="control-label col-md-2">Sự mô tả</label>
+                                    <div class="col-md-4">
+                                        <input class="form-control" type="text" id="txtDescription" readonly>
                                     </div>
-                                    <label class="control-label col-md-1">Ngày tạo</label>
-                                    <div class="input-group date col-md-5" id="txtCreatedDate" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input" data-target="#txtCreatedDate" id="txtCreatedDatenow" />
-                                        <div class="input-group-append" data-target="#txtCreatedDate" data-toggle="datetimepicker">
+                                    <label class="control-label col-md-2">Ngày tạo</label>
+                                    <div class="input-group date col-md-4" id="txtCreatedDate_now" data-target-input="nearest">
+                                        <input type="text" class="form-control datetimepicker-input" data-target="#txtCreatedDate_now" id="txtCreatedDate" />
+                                        <div class="input-group-append" data-target="#txtCreatedDate_now" data-toggle="datetimepicker">
                                             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                         </div>
                                     </div>
-
                                 </div>
                                 <div class="form-group row">
-                                    <label class="control-label col-md-1">MetaKeywords</label>
-                                    <div class="col-md-5">
+                                    <label class="control-label col-md-2">Thể loại sản phẩm</label>
+                                    <div class="col-md-4">
+                                        @Html.DropDownList("txtCategoryID", (IEnumerable<SelectListItem>)ViewBag.CategoryList, new { @class = "form-control select2" })
+                                    </div>
+                                    <label class="control-label col-md-2">Nổi bật</label>
+                                    <div class="input-group date col-md-4" id="txtTopHotnew" data-target-input="nearest">
+                                        <input type="text" class="form-control datetimepicker-input" data-target="#txtTopHotnew" id="txtTopHot" />
+                                        <div class="input-group-append" data-target="#txtTopHotnew" data-toggle="datetimepicker">
+                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="control-label col-md-2">MetaKeywords</label>
+                                    <div class="col-md-4">
                                         <input class="form-control" type="text" id="txtMetaKeywords" placeholder="Nhập MetaKeywords">
                                     </div>
-                                    <label class="control-label col-md-1">MetaDescription</label>
-                                    <div class="col-md-5">
+                                    <label class="control-label col-md-2">MetaDescription</label>
+                                    <div class="col-md-4">
                                         <input class="form-control" type="text" id="txtMetaDescriptions" placeholder="Nhập MetaDescriptions">
                                     </div>
                                 </div>
@@ -126,7 +143,7 @@
                                     <div class="col-md-11">
                                         <div class="row">
                                             <a href="#" class="btn btn-success col-md-3" id="selectimg">Thêm ảnh</a>
-                                            <input class="form-control col-md-9" type="text" id="txtImg">
+                                            <input class="form-control col-md-9" type="text" id="txtImage">
                                         </div>
                                     </div>
                                 </div>
@@ -137,13 +154,23 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
+                                    <label class="control-label col-md-2">Bảo hành</label>
+                                    <div class="col-md-4">
+                                        <input class="form-control" type="text" id="txtWarranty">
+                                    </div>
+                                    <label for="txtnoibat" class="control-label col-md-2">Tags</label>
+                                    <div class="col-md-4">
+                                        <input class="form-control" type="text" id="txtTags">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
                                     <label class="control-label col-md-1">Nội dung</label>
                                     <div class="col-md-11">
                                         <textarea class="form-control" id="txtDetail" rows="15"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="txtnoibat" class="control-label col-md-1">Trạng thái</label>
+                                    <label for="txtnoibat" class="control-label col-md-2">Trạng thái</label>
                                     <div class="col-md-4">
                                         <input class="form-check-input" type="checkbox" id="txtStatus">
                                     </div>
@@ -171,11 +198,11 @@
         $(function () {
             LoadTable();
             Setup();
-            Show('#contentmain', '#contentadd');
+            Show('#Contentmain', '#Contentadd');
         });
         function LoadTable() {
             $.ajax({
-                url: '@Url.Action("Index","About")',
+                url: '@Url.Action("Index", "Content")',
                 type: 'GET',
             }).done(function (data) {
                 $('#tablerespon').html(data);
@@ -205,33 +232,33 @@
             $('#txtCreatedDate').datetimepicker({
                 format: 'MM/DD/yyyy'
             });
+            $('#txtTopHot').datetimepicker({
+                format: 'MM/DD/yyyy'
+            });
             $('.select2').select2();
         };
         function Show(el1,el2) {
             $(el1).show();
             $(el2).hide();
         };
-        function ge_today_date(date) {
-            var day = date.getDate();
-            var month = date.getMonth() + 1;
-            var year = date.getFullYear().toString().slice(2);
-            return day + '/' + month + '/' + year;
-        }
         function Reset() {
-            $('#txtten').val("");
+            $('#txtName').val("");
             $('#txtMetaTitle').val("");
-            $('#txtMetaKeyword').val("");
             $('#txtDescription').val("");
-            /*$('#txtCreatedDate').val("");*/
+            $('#txtCreatedDate').val("");
+            $("#txtCategoryID").val("");
+            $("#txtTopHot").val('');
             $('#txtMetaKeywords').val("");
             $('#txtMetaDescriptions').val("");
-            $("#txtCreatedDatenow").val('');
-            $('#txtImg').val("");
+            $("#txtImage").val('');
+            $("#txtWarranty").val("");
+            $('#txtTags').val("");
             $('#imgrow').attr('src', null);
             CKEDITOR.instances['txtDetail'].setData('');
             $("#txtStatus").val(false);
+       
             ClearError('#txtten');
-            ClearError('#txtDetail');
+
             $("#btnSave").text("Lưu lại");
             $('#tile-body').nextAll(".spanError").remove();
         };
@@ -244,8 +271,9 @@
                 Bool = false;
             }
         });
+       
         function Closed() {
-            Show('#aboutmain', '#aboutadd');
+            Show('#Contentmain', '#Contentadd');
         };
         function validate() {
             FormModalIsValid = true;
@@ -255,39 +283,48 @@
         function Get() {
             var Data = {
                 ID: $("#isid").val(),
-                Name: $('#txtten').val(),
+                Name: $('#txtName').val(),
                 MetaTitle: $('#txtMetaTitle').val(),
                 Description: $('#txtDescription').val(),
-                Image: $('#txtImg').val(),
-                Detail: CKEDITOR.instances['txtDetail'].getData(),
-                CreatedDate: $("#txtCreatedDatenow").val() != "" ? $("#txtCreatedDatenow").val() : new Date(),
+                CreatedDate: $("#txtCreatedDate").val() != "" ? $("#txtCreatedDate").val() : new Date(),
+                CategoryID: $('#txtCategoryID').val(),
                 CreatedBy: null,
                 ModifiedDate: new Date(),
                 ModifiedBy: null,
+                TopHot: $("#txtTopHot").val() != "" ? $("#txtTopHot").val() : null,
                 MetaKeywords: $('#txtMetaKeywords').val(),
                 MetaDescriptions: $('#txtMetaDescriptions').val(),
-                Status:Bool
+                Status: Bool,
+                Image: $('#txtImage').val(),
+                Warranty: $('#txtWarranty').val(),
+                Tags: $("#txtTags").val(),
+                ViewCount: 0,
+                Detail: CKEDITOR.instances['txtDetail'].getData(),
             };
             return Data;
         };
         function set(Obj) {
-            ID: $("#isid").val(Obj.ID);
-            Name: $('#txtten').val(Obj.Name);
-            MetaTitle: $('#txtMetaTitle').val(Obj.MetaTitle);
-            Description: $('#txtDescription').val(Obj.Description);
-            Image: $('#txtImg').val(Obj.Image);
+            $("#isid").val(Obj.ID);
+            $('#txtName').val(Obj.Name);
+            $('#txtMetaTitle').val(Obj.MetaTitle);
+            $('#txtDescription').val(Obj.Description);
+            $('#txtImage').val(Obj.Image);
             CKEDITOR.instances['txtDetail'].setData(Obj.Detail);
-            CreatedDate: $("#txtCreatedDatenow").val(Obj.Ngaytao)
+            $("#txtCreatedDate").val(Obj.Ngaytao)
             CreatedBy: null;
             ModifiedDate: new Date();
             ModifiedBy: null;
-            MetaKeywords: $('#txtMetaKeywords').val(Obj.MetaKeywords);
-            MetaDescriptions: $('#txtMetaDescriptions').val(Obj.MetaDescriptions);
+            $('#txtMetaKeywords').val(Obj.MetaKeywords);
+            $('#txtMetaDescriptions').val(Obj.MetaDescriptions);
             $("#txtStatus").prop('checked', Obj.Status);
             $('#imgrow').attr('src', Obj.Image);
+            $('#txtCategoryID').val(Obj.CategoryID);
+            $('#txtWarranty').val(Obj.Warranty);
+            $("#txtTags").val(Obj.Tags);
+            $("#txtTopHot").val(Obj.TopHot);
         }
         function Add() {
-            Show('#contentadd', '#contentmain');
+            Show('#Contentadd', '#Contentmain');
             Reset();
             $("#isid").val("-1");
         };
@@ -297,11 +334,11 @@
             validate()
             if (FormModalIsValid) {
                 $.ajax({
-                    url: '@Url.Action("AddandEdit", "About")',
+                    url: '@Url.Action("AddandEdit", "Content")',
                     dataType: "json",
                     type: "POST",
                     contentType: 'application/json; charset=utf-8',
-                    data: JSON.stringify({ AboutDtos: Obj }),
+                    data: JSON.stringify({ ContentDtos: Obj }),
                     async: true,
                     processData: false,
                     cache: false,
@@ -320,7 +357,7 @@
         };
         function Edit(id) {
                 $.ajax({
-                    url: '@Url.Action("GetObjById", "About")',
+                    url: '@Url.Action("GetObjById", "Content")',
                     dataType: "json",
                     type: "POST",
                     contentType: 'application/json; charset=utf-8',
@@ -335,7 +372,7 @@
                             $('#textthemmoi').html('Chỉnh sửa');
                             $('#textthemmoinho').html('Chỉnh sửa');
 
-                            Show('#contentadd', '#contentmain');
+                            Show('#Contentadd', '#Contentmain');
                             set(data.Data);
                         }
                     },
@@ -363,7 +400,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                      $.ajax({
-                            url: "@Url.Action("Delete", "About")",
+                            url: "@Url.Action("Delete", "Content")",
                             type: "GET",
                             data: {id:id},
                             cache: false,
@@ -393,7 +430,7 @@
         };
         function ChangCheck(id) {
             $.ajax({
-                 url: "@Url.Action("ChangCheck", "About")",
+                 url: "@Url.Action("ChangCheck", "Content")",
                  type: "POST",
                  data: {id:id},
                  cache: false,

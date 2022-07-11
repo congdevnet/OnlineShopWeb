@@ -255,12 +255,6 @@
             $(el1).show();
             $(el2).hide();
         };
-        function ge_today_date(date) {
-            var day = date.getDate();
-            var month = date.getMonth() + 1;
-            var year = date.getFullYear().toString().slice(2);
-            return day + '/' + month + '/' + year;
-        }
         function Reset() {
             $('#txtten').val("");
             $('#txtMetaTitle').val("");
@@ -322,6 +316,7 @@
                 Image: $('#txtImage').val(),
                 Detail: CKEDITOR.instances['txtDetail'].getData(),
                 CreatedDate: $("#txtCreatedDatenow").val() != "" ? $("#txtCreatedDatenow").val() : new Date(),
+                TopHot: $("#txtTopHot").val() != "" ? $("#txtTopHot").val() : null,
                 CreatedBy: null,
                 ModifiedDate: new Date(),
                 ModifiedBy: null,
@@ -381,7 +376,7 @@
                     dataType: "json",
                     type: "POST",
                     contentType: 'application/json; charset=utf-8',
-                    data: JSON.stringify({ AboutDtos: Obj }),
+                    data: JSON.stringify({ ProductDtos: Obj }),
                     async: true,
                     processData: false,
                     cache: false,

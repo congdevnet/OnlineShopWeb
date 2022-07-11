@@ -12,5 +12,6 @@ namespace WebQuanLyBanHangDtos
         public string Target { get; set; }
         public Nullable<bool> Status { get; set; }
         public Nullable<int> TypeID { get; set; }
+        public string TypeName { get; set; }
     }
 }

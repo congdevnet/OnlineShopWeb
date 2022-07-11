@@ -21,6 +21,7 @@ namespace WebQuanLyBanHangDtos
         public Nullable<bool> IncludedVAT { get; set; }
         public int Quantity { get; set; }
         public Nullable<long> CategoryID { get; set; }
+        public string CategoryName { get; set; }
         public string Detail { get; set; }
         public Nullable<int> Warranty { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }

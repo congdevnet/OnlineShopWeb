@@ -12,6 +12,7 @@ namespace WebQuanLyBanHangDtos
         public string Description { get; set; }
         public string Image { get; set; }
         public Nullable<long> CategoryID { get; set; }
+        public string CategoryName { get; set; }
         public string Detail { get; set; }
         public Nullable<int> Warranty { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
