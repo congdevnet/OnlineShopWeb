@@ -1,0 +1,256 @@
+﻿@{
+    ViewBag.Title = "DanhSach";
+    Layout = "~/Areas/admin/Views/Shared/Layout.cshtml";
+}
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Danh sách</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                    <li class="breadcrumb-item active">Thể loại menu</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        @*<div class="card-title">*@
+                        <div class="row">
+                            <div class="col-8">
+                                <strong>Danh sách thể loại menu</strong>
+                            </div>
+                            <div class="col-4" style="text-align:right" ;>
+                                <span class="btn btn-primary" onclick="Add()">Thêm mới</span>
+                            </div>
+                        </div>
+                        @*</div>*@
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div id="tablerespon">
+
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</section>
+
+@*Modals thêm mới*@
+<div class="modal fade" id="Modalmenu" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mediumModalLabel">Medium Modal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="tile-body" id="tile-body">
+                    <div class="form-group row">
+                        <input type="hidden" id="isid" />
+                        <label class="control-label col-md-2">Tên<span style="color:red">(*)</span></label>
+                        <div class="col-md-10">
+                            <input class="form-control" type="text" id="txtten" placeholder="Nhập tên">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnSave" onclick="save()">Confirm</button>
+                <button type="button" class="btn btn-secondary" id="btndelete" data-dismiss="modal">Hủy</button>
+            </div>
+        </div>
+    </div>
+</div>
+@*End Modal thêm mới*@
+@section scripts {
+    <script type="text/javascript">
+        $(function () {
+            LoadTable();
+        });
+        function LoadTable() {
+            $.ajax({
+                url: '@Url.Action("Index", "MenuType")',
+                type: 'GET',
+            }).done(function (data) {
+                $('#tablerespon').html(data);
+                $("#tablerepoin").DataTable({
+                    "responsive": true, "lengthChange": false, "autoWidth": false,
+                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+                }).buttons().container().appendTo('#tablerepoin_wrapper .col-md-6:eq(0)');
+
+            });
+        };
+        
+        function Reset() {
+            $('#txtten').val("");
+            
+            ClearError('#txtten');
+            $("#btnSave").text("Lưu lại");
+            $('#tile-body').nextAll(".spanError").remove();
+        };
+        function validate() {
+            FormModalIsValid = true;
+            ValidateRequireControl('#txtten', 'Bạn phải nhập trường này!');
+            ValidateRequireControlMaxLength("#txtten", "Bạn không được nhập quá tên chủ đầu tư quá 256 ký tự", 256);
+        };
+        function Get() {
+            var Data = {
+                ID: $("#isid").val(),
+                Name: $('#txtten').val(),
+            };
+            return Data;
+        };
+        function set(Obj) {
+            $("#isid").val(Obj.ID);
+            $('#txtten').val(Obj.Name);
+           
+        }
+        function Add() {
+            Reset();
+            $("#isid").val("-1");
+            $('#tile-body').nextAll(".spanError").remove()
+            $('#mediumModalLabel').html('Thêm mới thể loại menu')
+            $('#btnSave').html('Thêm mới')
+            $("#Modalmenu").modal({ backdrop: "static" })
+        };
+        function save() {
+            debugger
+        var Obj = Get();
+            validate()
+            if (FormModalIsValid) {
+                $.ajax({
+                    url: '@Url.Action("AddandEdit", "MenuType")',
+                    dataType: "json",
+                    type: "POST",
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify({ MenuTypeDtos: Obj }),
+                    async: true,
+                    processData: false,
+                    cache: false,
+                    success: function (data) {
+                        if (data.Status == 200) {
+                            toastr.success(data.Mes);
+                            $("#Modalmenu").modal("hide")
+                            LoadTable();
+                        }
+                    },
+                    error: function (xhr) {
+                        alert(xhr);
+                    }
+                });
+            }
+        };
+        function Edit(id) {
+                $.ajax({
+                    url: '@Url.Action("GetObjById", "MenuType")',
+                    dataType: "json",
+                    type: "POST",
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify({ id: id }),
+                    async: true,
+                    processData: false,
+                    cache: false,
+                    success: function (data) {
+                        console.log(data.Data);
+                        if (data.Status == 200) {
+                            $('#btnSave').html('Cập nhật');
+                            $('#textthemmoi').html('Chỉnh sửa');
+                            $('#textthemmoinho').html('Chỉnh sửa');
+                            $('#mediumModalLabel').html('Chỉnh sửa')
+                            //hiện modal
+                            $("#Modalmenu").modal({ backdrop: "static" })
+
+                            set(data.Data);
+                        }
+                    },
+                    error: function (xhr) {
+                        alert('error');
+                    }
+                });
+        };
+        function Delete(id) {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+            swalWithBootstrapButtons.fire({
+                title: 'Bạn có chắc không?',
+                text: "Bạn sẽ không thể khôi phục được dữ liệu!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Có, xóa nó!',
+                cancelButtonText: 'Không, hủy bỏ!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                     $.ajax({
+                            url: "@Url.Action("Delete", "MenuType")",
+                            type: "GET",
+                            data: {id:id},
+                            cache: false,
+                         success: function (data) {
+                             LoadTable();
+                                swalWithBootstrapButtons.fire(
+                                    'Đã xóa!',
+                                    'Tệp của bạn đã bị xóa.',
+                                    'success'
+                                )
+                            },
+                            error: function (xhr) {
+                                Swal.fire(xhr);
+                            }
+                     });
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire(
+                        'Đã hủy',
+                        'Tệp của bạn an toàn!',
+                        'error'
+                    )
+                }
+            })
+        };
+        function ChangCheck(id) {
+            $.ajax({
+                 url: "@Url.Action("ChangCheck", "MenuType")",
+                 type: "POST",
+                 data: {id:id},
+                 cache: false,
+                 success: function (data) {
+                     toastr.success(data.Mes);
+                     LoadTable();
+                 },
+                 error: function (xhr) {
+                     Swal.fire(xhr);
+                 }});
+        }
+    </script>
+}
+
+
+
+

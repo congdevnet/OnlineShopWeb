@@ -1,0 +1,42 @@
+﻿@model IEnumerable<WebQuanLyBanHangDtos.MenuDto>
+@{
+    ViewBag.Title = "DanhSach";
+    Layout = null;
+}
+<table id="tablerepoin" class="table table-bordered table-striped table-responsive">
+    <thead>
+        <tr class="text-center">
+            <th width="5%">Stt</th>
+            <th width="20%">Tên</th>
+            <th width="15%">Link</th>
+            <th width="15%">Target</th>
+            <th width="15%">Thể loại menu</th>
+            <th width="15%">Trạng thái</th>
+            <th width="15%">Chức năng</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td class="text-center">@item.Stt</td>
+            <td>@item.Text</td>
+            <td>@item.Link</td>
+            <td>@item.Target</td>
+            <td>@item.TypeID</td>
+            <td>@item.TypeID</td>
+            <td class="text-center">
+                <a title="Sửa thông tin" onclick="Edit(@item.ID)" class="btn btn-sm btn-primary" href="#"><i class="fa fa-edit"></i></a>
+                &nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;
+                <a title="Xóa bản ghi" onclick="Delete(@item.ID)" class="btn btn-sm btn-danger" href="#"><i class="fa fa-fw fa-trash"></i></a>
+            </td>
+        </tr>
+        }
+
+    </tbody>
+</table>
+
+
+
+
+

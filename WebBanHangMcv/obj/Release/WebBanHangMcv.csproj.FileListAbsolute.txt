@@ -93,4 +93,3 @@ E:\OnlineShopWeb\WebBanHangMcv\bin\roslyn\vbc.exe
 E:\OnlineShopWeb\WebBanHangMcv\bin\roslyn\vbc.exe.config
 E:\OnlineShopWeb\WebBanHangMcv\bin\roslyn\vbc.rsp
 E:\OnlineShopWeb\WebBanHangMcv\bin\roslyn\VBCSCompiler.exe.config
-E:\OnlineShopWeb\WebBanHangMcv\bin\CKFinder.dll
