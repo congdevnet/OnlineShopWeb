@@ -94,7 +94,7 @@
                     <div class="form-group row">
                         <label class="control-label col-md-2">Thể loại menu</label>
                         <div class="col-md-10">
-                            <input class="form-control" type="number" min="1" id="txtTypeID">
+                            @Html.DropDownList("txtTypeID", (IEnumerable<SelectListItem>)ViewBag.CategoryList, new { @class = "form-control" })
                         </div>
                     </div>
                     <div class="form-group row">
@@ -135,11 +135,10 @@
         function Reset() {
             $('#txtten').val("");
             $('#txtlink').val("");
-            $('#txtDisplayOrder').val(0);
+            $('#txtDisplayOrder').val("");
             $('#txtTarget').val("");
             $('#txtTypeID').val("");
-            $('#txtStatus').val("");
-           
+            $("#txtStatus").prop('checked', false);
 
             ClearError('#txtten');
             $("#btnSave").text("Lưu lại");
@@ -153,15 +152,34 @@
         function Get() {
             var Data = {
                 ID: $("#isid").val(),
-                Name: $('#txtten').val(),
+                Text: $('#txtten').val(),
+                Link: $('#txtlink').val(),
+                DisplayOrder: $('#txtDisplayOrder').val(),
+                Target: $('#txtTarget').val(),
+                Status: Bool,
+                TypeID: $('#txtTypeID').val(),
             };
             return Data;
         };
         function set(Obj) {
             $("#isid").val(Obj.ID);
             $('#txtten').val(Obj.Name);
+            $('#txtlink').val(Obj.Link);
+            $('#txtDisplayOrder').val(Obj.DisplayOrder);
+            $('#txtTarget').val(Obj.Target);
+            $("#txtStatus").prop('checked', Obj.Status );
+            $('#txtTypeID').val(Obj.TypeID);
+        };
+        var Bool = true;
+        $("#txtStatus[type='checkbox']").change(function () {
+            if ($(this).is(":checked")) {
+                Bool = true;
+            }
+            else {
+                Bool = false;
+            }
+        });
 
-        }
         function Add() {
             Reset();
             $("#isid").val("-1");
@@ -169,6 +187,11 @@
             $('#mediumModalLabel').html('Thêm mới thể loại menu')
             $('#btnSave').html('Thêm mới')
             $("#Modalmenu").modal({ backdrop: "static" })
+        };
+        function Setup() {
+            $('#txtten').change(function () {
+                $('#txtlink').val("/" +removeVietnameseTones($('#txtten').val()));
+            });
         };
         function save() {
             debugger
@@ -180,7 +203,7 @@
                     dataType: "json",
                     type: "POST",
                     contentType: 'application/json; charset=utf-8',
-                    data: JSON.stringify({ MenuTypeDtos: Obj }),
+                    data: JSON.stringify({ MenuDtos: Obj }),
                     async: true,
                     processData: false,
                     cache: false,

@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using WebBanHang_Common;
 using WebBanHangMcv.Services.MenuServices;
+using WebBanHangMcv.Services.MenuTypeServices;
 using WebQuanLyBanHangDtos;
 
 namespace WebBanHangMcv.Areas.admin.Controllers
@@ -12,10 +14,12 @@ namespace WebBanHangMcv.Areas.admin.Controllers
     {
         // GET: admin/Menu
         private IMenuServices _IMenuSrevices;
+        private IMenuTypeServices _IMenuTypeSrevices;
 
-        public MenuController(IMenuServices _IMenuSrevices)
+        public MenuController(IMenuServices _IMenuSrevices, IMenuTypeServices _IMenuTypeSrevices)
         {
             this._IMenuSrevices = _IMenuSrevices;
+            this._IMenuTypeSrevices = _IMenuTypeSrevices;
         }
 
         // GET: admin/Menu
@@ -35,6 +39,7 @@ namespace WebBanHangMcv.Areas.admin.Controllers
         [HttpGet]
         public ActionResult DanhSach()
         {
+            SetViewBang();
             return View();
         }
 
@@ -95,6 +100,16 @@ namespace WebBanHangMcv.Areas.admin.Controllers
             {
                 return Json(new JsonRespon(Mes: "Đã có lỗi sảy ra!", Status: 500), JsonRequestBehavior.AllowGet);
             }
+        }
+        private void SetViewBang()
+        {
+            // Lấy data
+            // Lấy toàn bộ thể loại:
+            List<MenuTypeDto> cate = _IMenuTypeSrevices.All<MenuTypeDto>().ToList();
+            // Tạo SelectList
+            SelectList cateList = new SelectList(cate, "ID", "Name");
+            // Set vào ViewBag
+            ViewBag.CategoryList = cateList;
         }
     }
 }
