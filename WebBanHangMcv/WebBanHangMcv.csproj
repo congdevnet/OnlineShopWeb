@@ -178,7 +178,9 @@
     <Compile Include="Areas\admin\adminAreaRegistration.cs" />
     <Compile Include="Areas\admin\Controllers\AboutController.cs" />
     <Compile Include="Areas\admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\admin\Controllers\ContactController.cs" />
     <Compile Include="Areas\admin\Controllers\ContentController.cs" />
+    <Compile Include="Areas\admin\Controllers\FooterController.cs" />
     <Compile Include="Areas\admin\Controllers\homeadminController.cs" />
     <Compile Include="Areas\admin\Controllers\MenuController.cs" />
     <Compile Include="Areas\admin\Controllers\MenuTypeController.cs" />
@@ -3348,6 +3350,10 @@
     <Content Include="Areas\admin\Views\MenuType\DanhSach.cshtml" />
     <Content Include="Areas\admin\Views\Menu\Index.cshtml" />
     <Content Include="Areas\admin\Views\Menu\DanhSach.cshtml" />
+    <Content Include="Areas\admin\Views\Contact\Index.cshtml" />
+    <Content Include="Areas\admin\Views\Contact\DanhSach.cshtml" />
+    <Content Include="Areas\admin\Views\Footer\Index.cshtml" />
+    <Content Include="Areas\admin\Views\Footer\DanhSach.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
