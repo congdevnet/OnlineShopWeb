@@ -118,7 +118,8 @@
                                 <div class="form-group row">
                                     <label class="control-label col-md-2">Thể loại sản phẩm</label>
                                     <div class="col-md-4">
-                                        @Html.DropDownList("txtCategoryID", (IEnumerable<SelectListItem>)ViewBag.CategoryList, new { @class = "form-control select2" })
+                                        @*@Html.DropDownList("txtCategoryID", (IEnumerable<SelectListItem>)ViewBag.CategoryList, new { @class = "form-control select2" })*@
+                                        @Html.DropDownList("txtCategoryID", (IEnumerable<SelectListItem>)ViewBag.CategoryList, new { @class = "form-control" })
                                     </div>
                                     <label class="control-label col-md-2">Nổi bật</label>
                                     <div class="input-group date col-md-4" id="txtTopHotnew" data-target-input="nearest">
@@ -231,7 +232,7 @@
             $("#selectimg").on('click', function () {
                 var finder = new CKFinder();
                 finder.selectActionFunction = function (url) {
-                    $("#txtImg").val(url);
+                    $("#txtImage").val(url);
                     $("#imgrow").attr("src", url );
                 };
                 finder.popup();
@@ -246,7 +247,7 @@
             $('#txtCreatedDate').datetimepicker({
                 format: 'MM/DD/yyyy'
             });
-            $('#txtTopHot').datetimepicker({
+            $('#txtTopHotnew').datetimepicker({
                 format: 'MM/DD/yyyy'
             });
             $('.select2').select2();

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WebQuanLyBanHangDtos.MenuDto>
+﻿@model IEnumerable<WebQuanLyBanHangDtos.Menuview>
 @{
     ViewBag.Title = "DanhSach";
     Layout = null;
@@ -7,23 +7,23 @@
     <thead>
         <tr class="text-center">
             <th width="5%">Stt</th>
-            <th width="20%">Tên</th>
-            <th width="15%">Link</th>
+            <th width="25%">Tên</th>
+            <th width="20%">Link</th>
             <th width="15%">Target</th>
             <th width="15%">Thể loại menu</th>
-            <th width="15%">Trạng thái</th>
-            <th width="15%">Chức năng</th>
+            <th width="10%">Trạng thái</th>
+            <th width="10%">Chức năng</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
         <tr>
-            <td class="text-center">@item.Stt</td>
+            <td class="text-center">1</td>
             <td>@item.Text</td>
             <td>@item.Link</td>
             <td>@item.Target</td>
-            <td>@item.TypeName</td>
+            <td>@item.MenuName</td>
             <td class="text-center">
                 @if ((bool)item.Status)
                 {

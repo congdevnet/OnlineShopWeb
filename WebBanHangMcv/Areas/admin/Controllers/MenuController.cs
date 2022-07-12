@@ -14,6 +14,7 @@ namespace WebBanHangMcv.Areas.admin.Controllers
     {
         // GET: admin/Menu
         private IMenuServices _IMenuSrevices;
+
         private IMenuTypeServices _IMenuTypeSrevices;
 
         public MenuController(IMenuServices _IMenuSrevices, IMenuTypeServices _IMenuTypeSrevices)
@@ -27,13 +28,12 @@ namespace WebBanHangMcv.Areas.admin.Controllers
         public ActionResult Index()
         {
             int Index = 0;
-            var Data = _IMenuSrevices.All<MenuDto>().ToList();
+            var Data = _IMenuSrevices.All<Menuview>().ToList();
             foreach (var item in Data)
             {
                 item.Stt = Index + 1;
-                item.TypeName = _IMenuTypeSrevices.Find<MenuTypeDto>(item.TypeID).Name;
+                item.MenuName = _IMenuTypeSrevices.All<MenuTypeDto>().Where(x => x.ID == item.TypeID).FirstOrDefault().Name;
             }
-
             return View(Data);
         }
 
@@ -47,8 +47,8 @@ namespace WebBanHangMcv.Areas.admin.Controllers
         [HttpPost]
         public JsonResult GetObjById(int id)
         {
-            var data = _IMenuSrevices.Find<MenuDto>(id);
-            return Json(new JsonData<MenuDto>(200, data), JsonRequestBehavior.AllowGet);
+            var data = _IMenuSrevices.Find<Menuview>(id);
+            return Json(new JsonData<Menuview>(200, data), JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
@@ -87,6 +87,7 @@ namespace WebBanHangMcv.Areas.admin.Controllers
                 return Json(new JsonRespon(Mes: ex.Message, Status: 500), JsonRequestBehavior.AllowGet);
             }
         }
+
         [HttpPost]
         public JsonResult ChangCheck(int id)
         {
@@ -102,6 +103,7 @@ namespace WebBanHangMcv.Areas.admin.Controllers
                 return Json(new JsonRespon(Mes: "Đã có lỗi sảy ra!", Status: 500), JsonRequestBehavior.AllowGet);
             }
         }
+
         private void SetViewBang()
         {
             // Lấy data

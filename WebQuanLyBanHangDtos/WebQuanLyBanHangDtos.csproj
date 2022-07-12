@@ -72,6 +72,7 @@
     <Compile Include="LanguageDto.cs" />
     <Compile Include="MenuDto.cs" />
     <Compile Include="MenuTypeDto.cs" />
+    <Compile Include="Menuview.cs" />
     <Compile Include="OrderDetailDto.cs" />
     <Compile Include="OrderDto.cs" />
     <Compile Include="ProductCategoryDto.cs" />

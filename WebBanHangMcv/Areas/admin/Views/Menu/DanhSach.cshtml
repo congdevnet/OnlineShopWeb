@@ -117,6 +117,7 @@
     <script type="text/javascript">
         $(function () {
             LoadTable();
+            Setup();
         });
         function LoadTable() {
             $.ajax({
@@ -163,7 +164,7 @@
         };
         function set(Obj) {
             $("#isid").val(Obj.ID);
-            $('#txtten').val(Obj.Name);
+            $('#txtten').val(Obj.Text);
             $('#txtlink').val(Obj.Link);
             $('#txtDisplayOrder').val(Obj.DisplayOrder);
             $('#txtTarget').val(Obj.Target);
@@ -199,7 +200,7 @@
             validate()
             if (FormModalIsValid) {
                 $.ajax({
-                    url: '@Url.Action("AddandEdit", "MenuType")',
+                    url: '@Url.Action("AddandEdit", "Menu")',
                     dataType: "json",
                     type: "POST",
                     contentType: 'application/json; charset=utf-8',
@@ -222,7 +223,7 @@
         };
         function Edit(id) {
                 $.ajax({
-                    url: '@Url.Action("GetObjById", "MenuType")',
+                    url: '@Url.Action("GetObjById", "Menu")',
                     dataType: "json",
                     type: "POST",
                     contentType: 'application/json; charset=utf-8',
@@ -267,7 +268,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                      $.ajax({
-                            url: "@Url.Action("Delete", "MenuType")",
+                            url: "@Url.Action("Delete", "Menu")",
                             type: "GET",
                             data: {id:id},
                             cache: false,
@@ -297,7 +298,7 @@
         };
         function ChangCheck(id) {
             $.ajax({
-                 url: "@Url.Action("ChangCheck", "MenuType")",
+                 url: "@Url.Action("ChangCheck", "Menu")",
                  type: "POST",
                  data: {id:id},
                  cache: false,
