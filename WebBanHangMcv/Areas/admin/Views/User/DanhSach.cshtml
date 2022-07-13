@@ -53,7 +53,7 @@
 </section>
 
 @*Modals thêm mới*@
-<div class="modal fade" id="Modalmenu" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+<div class="modal fade" id="Modalnguoidung" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -161,45 +161,29 @@
                 Address: $('#txtAddress').val(),
                 Email: $('#txtEmail').val(),
                 Phone: $('#txtPhone').val(),
-                CreatedDate:
-                ModifiedDate
+                CreatedDate: new Date(),
+                ModifiedDate: new Date(),
             };
             return Data;
         };
         function set(Obj) {
             $("#isid").val(Obj.ID);
-            $('#txtten').val(Obj.Text);
-            $('#txtlink').val(Obj.Link);
-            $('#txtDisplayOrder').val(Obj.DisplayOrder);
-            $('#txtTarget').val(Obj.Target);
-            $("#txtStatus").prop('checked', Obj.Status );
-            $('#txtTypeID').val(Obj.TypeID);
+            $('#txtUserName').val(Obj.UserName);
+            $('#txtPassword').val(Obj.Password);
+            $('#txtName').val(Obj.Name);
+            $('#txtAddress').val(Obj.Address);
+            $("#txtEmail").val(Obj.Email);
+            $('#txtPhone').val(Obj.Phone);
         };
-        var Bool = true;
-        $("#txtStatus[type='checkbox']").change(function () {
-            if ($(this).is(":checked")) {
-                Bool = true;
-            }
-            else {
-                Bool = false;
-            }
-        });
-
         function Add() {
             Reset();
             $("#isid").val("-1");
             $('#tile-body').nextAll(".spanError").remove()
-            $('#mediumModalLabel').html('Thêm mới thể loại menu')
+            $('#mediumModalLabel').html('Thêm mới người dùng')
             $('#btnSave').html('Thêm mới')
-            $("#Modalmenu").modal({ backdrop: "static" })
-        };
-        function Setup() {
-            $('#txtten').change(function () {
-                $('#txtlink').val("/" +removeVietnameseTones($('#txtten').val()));
-            });
+            $("#Modalnguoidung").modal({ backdrop: "static" })
         };
         function save() {
-            debugger
         var Obj = Get();
             validate()
             if (FormModalIsValid) {
@@ -208,14 +192,14 @@
                     dataType: "json",
                     type: "POST",
                     contentType: 'application/json; charset=utf-8',
-                    data: JSON.stringify({ MenuDtos: Obj }),
+                    data: JSON.stringify({ UserDtos: Obj }),
                     async: true,
                     processData: false,
                     cache: false,
                     success: function (data) {
                         if (data.Status == 200) {
                             toastr.success(data.Mes);
-                            $("#Modalmenu").modal("hide")
+                            $("#Modalnguoidung").modal("hide")
                             LoadTable();
                         }
                     },
@@ -243,7 +227,7 @@
                             $('#textthemmoinho').html('Chỉnh sửa');
                             $('#mediumModalLabel').html('Chỉnh sửa')
                             //hiện modal
-                            $("#Modalmenu").modal({ backdrop: "static" })
+                            $("#Modalnguoidung").modal({ backdrop: "static" })
 
                             set(data.Data);
                         }
