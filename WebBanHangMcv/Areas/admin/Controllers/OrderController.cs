@@ -1,37 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using WebBanHang_Common;
-using WebBanHangMcv.Services.ProductCategorySrevices;
-using WebBanHangMcv.Services.ProductServices;
+using WebBanHangMcv.Services.OrderSrevices;
 using WebQuanLyBanHangDtos;
 
 namespace WebBanHangMcv.Areas.admin.Controllers
 {
-    public class ProductController : Controller
+    public class OrderController : Controller
     {
-        // GET: admin/Product
-        private IProducSrevices _IProducSrevices;
-        private IProductCategorySrevices _IProductCategorySrevices;
+        // GET: admin/Order
+        private IOrderSrevices _IOrderServices;
 
-        public ProductController(IProducSrevices _IProducSrevices, IProductCategorySrevices _IProductCategorySrevices)
+        public OrderController(IOrderSrevices _IOrderServices)
         {
-            this._IProducSrevices = _IProducSrevices;
-            this._IProductCategorySrevices = _IProductCategorySrevices;
+            this._IOrderServices = _IOrderServices;
         }
 
-        // GET: admin/Product
+        // GET: admin/Order
         [HttpGet]
         public ActionResult Index()
         {
             int Index = 0;
-            var Data = _IProducSrevices.All<ProductDto>().ToList();
+            var Data = _IOrderServices.All<OrderDto>().ToList();
             foreach (var item in Data)
             {
                 item.Stt += Index + 1;
-                item.CategoryName = _IProductCategorySrevices.Find<ProductCategoryDto>(item.CategoryID).Name;
             }
 
             return View(Data);
@@ -40,34 +35,31 @@ namespace WebBanHangMcv.Areas.admin.Controllers
         [HttpGet]
         public ActionResult DanhSach()
         {
-            SetViewBang();
             return View();
         }
 
         [HttpPost]
         public JsonResult GetObjById(int id)
         {
-            var data = _IProducSrevices.Find<ProductDto>(id);
+            var data = _IOrderServices.Find<OrderDto>(id);
             data.Ngaytao = data.CreatedDate.Value.ToString("MM/dd/yyyy");
-            data.NgaySale = data.TopHot.Value.ToString("MM/dd/yyyy");
-            return Json(new JsonData<ProductDto>(200, data), JsonRequestBehavior.AllowGet);
+            return Json(new JsonData<OrderDto>(200, data), JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
-        public async Task<JsonResult> AddandEdit(ProductDto ProductDtos)
+        public async Task<JsonResult> AddandEdit(OrderDto OrderDtos)
         {
             // Phần thêm mới
             try
             {
-                if (ProductDtos.ID < 0)
+                if (OrderDtos.ID < 0)
                 {
-                    ProductDtos.Code = CodeRes.CodeAuto();
-                    await _IProducSrevices.CreateAsync<ProductDto>(ProductDtos);
+                    await _IOrderServices.CreateAsync<OrderDto>(OrderDtos);
                     return Json(new JsonRespon(Mes: "Thêm mới thành công", Status: 200), JsonRequestBehavior.AllowGet);
                 }
                 else
                 {
-                    await _IProducSrevices.UpdateAsync<ProductDto>(ProductDtos, ProductDtos.ID);
+                    await _IOrderServices.UpdateAsync<OrderDto>(OrderDtos, OrderDtos.ID);
                     return Json(new JsonRespon(Mes: "Chỉnh sửa thành công", Status: 200), JsonRequestBehavior.AllowGet);
                 }
             }
@@ -82,7 +74,7 @@ namespace WebBanHangMcv.Areas.admin.Controllers
         {
             try
             {
-                var DeleData = _IProducSrevices.Delete(id);
+                var DeleData = _IOrderServices.Delete(id);
                 return Json(new JsonRespon(Mes: "Xóa thành công", Status: 200), JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
@@ -94,9 +86,9 @@ namespace WebBanHangMcv.Areas.admin.Controllers
         [HttpPost]
         public JsonResult ChangCheck(int id)
         {
-            var Data = _IProducSrevices.Find<ProductDto>(id);
-            Data.Status = !Data.Status;
-            int Res = _IProducSrevices.Update<ProductDto>(Data, id);
+            var Data = _IOrderServices.Find<OrderDto>(id);
+            Data.Status = (int)Data.Status > 0 ? 1 : 0;
+            int Res = _IOrderServices.Update<OrderDto>(Data, id);
             if (Res > 0)
             {
                 return Json(new JsonRespon(Mes: "Cập nhật thành công", Status: 200), JsonRequestBehavior.AllowGet);
@@ -105,16 +97,6 @@ namespace WebBanHangMcv.Areas.admin.Controllers
             {
                 return Json(new JsonRespon(Mes: "Đã có lỗi sảy ra!", Status: 500), JsonRequestBehavior.AllowGet);
             }
-        }
-        private void SetViewBang()
-        {
-            // Lấy data
-            // Lấy toàn bộ thể loại:
-            List<ProductCategoryDto> cate = _IProductCategorySrevices.All<ProductCategoryDto>().ToList();
-            // Tạo SelectList
-            SelectList cateList = new SelectList(cate, "ID", "Name");
-            // Set vào ViewBag
-            ViewBag.CategoryList = cateList;
         }
     }
 }

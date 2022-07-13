@@ -1,0 +1,43 @@
+﻿@model IQueryable<WebQuanLyBanHangDtos.OrderDetailDto>
+@{
+    ViewBag.Title = "DanhSach";
+    Layout = null;
+}
+<table id="tablerepoin" class="table table-bordered table-striped">
+    <thead>
+        <tr class="text-center">
+            <th>Stt</th>
+            <th>Tên khách</th>
+            <th>Số điện thoại</th>
+            <th>Tên sản phẩm</th>
+            <th>Giá sản phẩm</th>
+            <th>Số lượng</th>
+            <th>Giá tổng</th>
+            <th>Địa chỉ</th>
+            <th>Ngày mua</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td class="text-center">@item.Stt</td>
+            <td>@item.ShipName</td>
+            <td>@item.ShipMobile</td>
+            <td>@item.ProductName</td>
+            <td>@item.Price</td>
+            <td>@item.Quantity</td>
+            <td>@item.Pricesum</td>
+            <td>@item.ShipAddress</td>
+            <td>@item.NgayMua</td>
+        </tr>
+        }
+
+    </tbody>
+</table>
+
+
+
+
+
+

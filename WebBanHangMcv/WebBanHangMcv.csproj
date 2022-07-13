@@ -185,8 +185,11 @@
     <Compile Include="Areas\admin\Controllers\homeadminController.cs" />
     <Compile Include="Areas\admin\Controllers\MenuController.cs" />
     <Compile Include="Areas\admin\Controllers\MenuTypeController.cs" />
+    <Compile Include="Areas\admin\Controllers\OrderController.cs" />
+    <Compile Include="Areas\admin\Controllers\OrderDetailController.cs" />
     <Compile Include="Areas\admin\Controllers\ProductCategoryController.cs" />
     <Compile Include="Areas\admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\admin\Controllers\UserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -3357,6 +3360,12 @@
     <Content Include="Areas\admin\Views\Footer\DanhSach.cshtml" />
     <Content Include="Areas\admin\Views\Feedback\Index.cshtml" />
     <Content Include="Areas\admin\Views\Feedback\DanhSach.cshtml" />
+    <Content Include="Areas\admin\Views\Order\Index.cshtml" />
+    <Content Include="Areas\admin\Views\Order\DanhSach.cshtml" />
+    <Content Include="Areas\admin\Views\OrderDetail\Index.cshtml" />
+    <Content Include="Areas\admin\Views\OrderDetail\DanhSach.cshtml" />
+    <Content Include="Areas\admin\Views\User\Index.cshtml" />
+    <Content Include="Areas\admin\Views\User\DanhSach.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

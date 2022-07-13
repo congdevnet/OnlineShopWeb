@@ -48,7 +48,8 @@ namespace WebBanHangMcv.Areas.admin.Controllers
         public JsonResult GetObjById(int id)
         {
             var data = _IContentServiceS.Find<ContentDto>(id);
-            data.Ngaytao = data.CreatedDate.Value.ToString("dd/MM/yyyy");
+            data.Ngaytao = data.CreatedDate.Value.ToString("MM/dd/yyyy");
+            data.Ngayhot = data.TopHot.Value.ToString("MM/dd/yyyy");
             return Json(new JsonData<ContentDto>(200, data), JsonRequestBehavior.AllowGet);
         }
 

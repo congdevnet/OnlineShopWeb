@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WebQuanLyBanHangDtos.FeedbackDto>
+﻿@model IEnumerable<WebQuanLyBanHangDtos.UserDto>
 @{
     ViewBag.Title = "DanhSach";
     Layout = null;
@@ -7,7 +7,7 @@
     <thead>
         <tr class="text-center">
             <th width="5%">Stt</th>
-            <th width="20%">Tên</th>
+            <th width="20%">Tên đăng nhập</th>
             <th width="15%">Số điện thoại</th>
             <th width="15%">Email</th>
             <th width="15%">Địa chỉ</th>
@@ -20,7 +20,7 @@
         {
             <tr>
                 <td class="text-center">@item.Stt</td>
-                <td>@item.Name</td>
+                <td>@item.UserName</td>
                 <td>@item.Phone</td>
                 <td>@item.Email</td>
                 <td>@item.Address</td>
@@ -47,6 +47,7 @@
 
     </tbody>
 </table>
+
 
 
 

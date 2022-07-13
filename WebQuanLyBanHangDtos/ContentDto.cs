@@ -27,5 +27,6 @@ namespace WebQuanLyBanHangDtos
         public string Tags { get; set; }
         public string Language { get; set; }
         public string Ngaytao { get; set; }
+        public string Ngayhot { get; set; }
     }
 }

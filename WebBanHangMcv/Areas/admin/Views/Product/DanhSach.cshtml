@@ -324,7 +324,7 @@
                 MetaKeywords: $('#txtMetaKeywords').val(),
                 MetaDescriptions: $('#txtMetaDescriptions').val(),
                 Status: Bool,
-                Code: null,
+                Code: $("#txtCode").val(),
                 MoreImages: null,
                 Price: $('#txtPrice').val(),
                 PromotionPrice: $('#txtPromotionPrice').val(),
@@ -360,7 +360,7 @@
             $('#txtQuantity').val(Obj.Quantity);
             $('#txtCategoryID').val(Obj.CategoryID);
             $('#txtWarranty').val(Obj.Warranty);
-            $('#txtTopHot').val(Obj.tophot);
+            $('#txtTopHot').val(Obj.NgaySale);
         }
         function Add() {
             Show('#Productadd', '#Productmain');

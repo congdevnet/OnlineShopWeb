@@ -1,0 +1,50 @@
+﻿@model IEnumerable<WebQuanLyBanHangDtos.OrderDto>
+@{
+    ViewBag.Title = "DanhSach";
+    Layout = null;
+}
+<table id="tablerepoin" class="table table-bordered table-striped">
+    <thead>
+        <tr class="text-center">
+            <th width="10%">Stt</th>
+            <th width="20%">Tên khách</th>
+            <th width="20%">Địa chỉ</th>
+            <th width="20%">Số điện thoại</th>
+            <th width="10%">Trạng thái</th>
+            <th width="10%">Chức năng</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td class="text-center">@item.Stt</td>
+            <td>@item.ShipName</td>
+            <td>@item.ShipAddress</td>
+            <td>@item.ShipMobile</td>
+            <td class="text-center">
+                @if (item.Status.HasValue)
+                {
+                    if (item.Status.Value>0)
+                    {
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked onchange="ChangCheck(@item.ID)">
+                    }
+                    else
+                    {
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" onchange="ChangCheck(@item.ID)">
+                    }
+                }
+            </td>
+            <td class="text-center">
+                <a title="Xóa bản ghi" onclick="Delete(@item.ID)" class="btn btn-sm btn-danger" href="#"><i class="fa fa-fw fa-trash"></i></a>
+            </td>
+        </tr>
+        }
+
+    </tbody>
+</table>
+
+
+
+
+

@@ -118,7 +118,7 @@
                                 <div class="form-group row">
                                     <label class="control-label col-md-2">Thể loại sản phẩm</label>
                                     <div class="col-md-4">
-                                        @Html.DropDownList("txtCategoryID", (IEnumerable<SelectListItem>)ViewBag.CategoryList, new { @class = "form-control select2" })
+                                        @Html.DropDownList("txtCategoryID", (IEnumerable<SelectListItem>)ViewBag.CategoryList, new { @class = "form-control" })
                                     </div>
                                     <label class="control-label col-md-2">Nổi bật</label>
                                     <div class="input-group date col-md-4" id="txtTopHotnew" data-target-input="nearest">
@@ -217,7 +217,7 @@
             $("#selectimg").on('click', function () {
                 var finder = new CKFinder();
                 finder.selectActionFunction = function (url) {
-                    $("#txtImg").val(url);
+                    $("#txtImage").val(url);
                     $("#imgrow").attr("src", url );
                 };
                 finder.popup();
@@ -256,7 +256,7 @@
             $('#imgrow').attr('src', null);
             CKEDITOR.instances['txtDetail'].setData('');
             $("#txtStatus").val(false);
-       
+
             ClearError('#txtten');
 
             $("#btnSave").text("Lưu lại");
@@ -271,14 +271,14 @@
                 Bool = false;
             }
         });
-       
+
         function Closed() {
             Show('#Contentmain', '#Contentadd');
         };
         function validate() {
             FormModalIsValid = true;
-            ValidateRequireControl('#txtten', 'Bạn phải nhập trường này!');
-            ValidateRequireControlMaxLength("#txtten", "Bạn không được nhập quá tên chủ đầu tư quá 256 ký tự", 256);
+            ValidateRequireControl('#txtName', 'Bạn phải nhập trường này!');
+            ValidateRequireControlMaxLength("#txtName", "Bạn không được nhập quá tên chủ đầu tư quá 256 ký tự", 256);
         };
         function Get() {
             var Data = {
@@ -299,7 +299,6 @@
                 Warranty: $('#txtWarranty').val(),
                 Tags: $("#txtTags").val(),
                 ViewCount: 0,
-                CategoryId: $("#select2-txtCategoryID-container").val(),
                 Detail: CKEDITOR.instances['txtDetail'].getData(),
             };
             return Data;
@@ -322,7 +321,7 @@
             $('#txtCategoryID').val(Obj.CategoryID);
             $('#txtWarranty').val(Obj.Warranty);
             $("#txtTags").val(Obj.Tags);
-            $("#txtTopHot").val(Obj.TopHot);
+            $("#txtTopHot").val(Obj.Ngayhot);
         }
         function Add() {
             Show('#Contentadd', '#Contentmain');
@@ -330,7 +329,7 @@
             $("#isid").val("-1");
         };
         function save() {
-            debugger
+            debugger;
         var Obj = Get();
             validate()
             if (FormModalIsValid) {

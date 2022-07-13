@@ -269,6 +269,5 @@ E:\OnlineShopWeb\WebBanHangMcv\obj\Debug\WebBanHangMcv.csproj.CoreCompileInputs.
 E:\OnlineShopWeb\WebBanHangMcv\obj\Debug\WebBanHangMcv.csproj.CopyComplete
 E:\OnlineShopWeb\WebBanHangMcv\obj\Debug\WebBanHangMcv.dll
 E:\OnlineShopWeb\WebBanHangMcv\obj\Debug\WebBanHangMcv.pdb
-E:\OnlineShopWeb\WebBanHangMcv\bin\CKFinder.dll
 E:\OnlineShopWeb\WebBanHangMcv\bin\WebBanHang_Common.dll
 E:\OnlineShopWeb\WebBanHangMcv\bin\WebBanHang_Common.pdb
