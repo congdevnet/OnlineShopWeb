@@ -19,7 +19,7 @@ namespace WebQuanLyBanHangDtos
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> ModifiedDate { get; set; }
         public string ModifiedBy { get; set; }
-        public bool Status { get; set; }
+        public bool? Status { get; set; }
         public string Ngaytao { get; set; }
     }
 }

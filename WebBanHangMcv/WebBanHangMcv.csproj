@@ -177,6 +177,7 @@
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Areas\admin\adminAreaRegistration.cs" />
     <Compile Include="Areas\admin\Controllers\AboutController.cs" />
+    <Compile Include="Areas\admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\admin\Controllers\ContactController.cs" />
     <Compile Include="Areas\admin\Controllers\ContentController.cs" />
@@ -189,6 +190,7 @@
     <Compile Include="Areas\admin\Controllers\OrderDetailController.cs" />
     <Compile Include="Areas\admin\Controllers\ProductCategoryController.cs" />
     <Compile Include="Areas\admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\admin\Controllers\SlideController.cs" />
     <Compile Include="Areas\admin\Controllers\UserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -234,6 +236,8 @@
     <Compile Include="Services\ProductCategorySrevices\ProductCategorySrevice.cs" />
     <Compile Include="Services\ProductServices\IProducSrevices.cs" />
     <Compile Include="Services\ProductServices\ProductSercie.cs" />
+    <Compile Include="Services\SlideServices\ISlideServices.cs" />
+    <Compile Include="Services\SlideServices\SlideService.cs" />
     <Compile Include="Services\UserSrevices\IUserSercies.cs" />
     <Compile Include="Services\UserSrevices\UserSercie.cs" />
   </ItemGroup>
@@ -3170,6 +3174,20 @@
     <Content Include="asset\ckfinder\_samples\skin_v1.html" />
     <Content Include="asset\ckfinder\_samples\standalone.html" />
     <Content Include="asset\ckfinder\_samples\standalone_v1.html" />
+    <Content Include="asset\login\css\bootstrap.min.css" />
+    <Content Include="asset\login\css\bootstrap\mixins\_border-radius.css" />
+    <Content Include="asset\login\css\bootstrap\mixins\_reset-text.css" />
+    <Content Include="asset\login\css\bootstrap\mixins\_screen-reader.css" />
+    <Content Include="asset\login\css\bootstrap\mixins\_text-hide.css" />
+    <Content Include="asset\login\css\bootstrap\mixins\_visibility.css" />
+    <Content Include="asset\login\css\bootstrap\utilities\_stretched-link.css" />
+    <Content Include="asset\login\css\bootstrap\_media.css" />
+    <Content Include="asset\login\css\style.css" />
+    <Content Include="asset\login\images\bg.jpg" />
+    <Content Include="asset\login\js\bootstrap.min.js" />
+    <Content Include="asset\login\js\jquery.min.js" />
+    <Content Include="asset\login\js\main.js" />
+    <Content Include="asset\login\js\popper.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -3366,6 +3384,15 @@
     <Content Include="Areas\admin\Views\OrderDetail\DanhSach.cshtml" />
     <Content Include="Areas\admin\Views\User\Index.cshtml" />
     <Content Include="Areas\admin\Views\User\DanhSach.cshtml" />
+    <Content Include="Config\Dbcontext.config" />
+    <Content Include="Areas\admin\Views\Slide\Index.cshtml" />
+    <Content Include="Areas\admin\Views\Slide\DanhSach.cshtml" />
+    <Content Include="Areas\admin\Views\User\Login.cshtml" />
+    <Content Include="asset\login\css\.DS_Store" />
+    <Content Include="asset\login\css\bootstrap\.DS_Store" />
+    <Content Include="asset\login\css\bootstrap\mixins\.DS_Store" />
+    <Content Include="asset\login\images\.DS_Store" />
+    <Content Include="asset\login\js\.DS_Store" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -3395,6 +3422,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\admin\Data\" />
+    <Folder Include="Areas\admin\Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

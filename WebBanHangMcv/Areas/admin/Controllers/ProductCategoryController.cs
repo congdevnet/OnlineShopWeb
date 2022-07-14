@@ -9,7 +9,7 @@ using WebQuanLyBanHangDtos;
 
 namespace WebBanHangMcv.Areas.admin.Controllers
 {
-    public class ProductCategoryController : Controller
+    public class ProductCategoryController : BaseController
     {
         // GET: admin/ProductProductCategory
         private IProductCategorySrevices _IProductCategorySrevices;

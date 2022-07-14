@@ -18,7 +18,25 @@ namespace WebBanHangMcv.Areas.admin.Controllers
         {
             this._iUserService = _iUserService;
         }
-
+        
+        public ActionResult Login()
+        {
+            return View();
+        }
+        public JsonResult Loginfrom(UserLogin userLogin)
+        {
+           var Data = _iUserService.Login(userLogin);
+            if (Data != null)
+            {
+                // Lưu Session
+                Session["UserName"] = userLogin.UserName;
+                return Json(new JsonRespon(Mes: "Đăng nhập thành công", Status: 200), JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(new JsonRespon(Mes: "Đăng nhập không thành công", Status: 500), JsonRequestBehavior.AllowGet);
+            }
+        }
         // GET: admin/User
         [HttpGet]
         public ActionResult Index()
@@ -55,6 +73,7 @@ namespace WebBanHangMcv.Areas.admin.Controllers
             {
                 if (UserDtos.ID < 0)
                 {
+                    UserDtos.Password = MD5Pasword.GetMD5(UserDtos.Password);
                     await _iUserService.CreateAsync<UserDto>(UserDtos);
                     return Json(new JsonRespon(Mes: "Thêm mới thành công", Status: 200), JsonRequestBehavior.AllowGet);
                 }

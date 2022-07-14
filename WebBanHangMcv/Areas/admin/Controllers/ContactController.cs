@@ -8,7 +8,7 @@ using WebQuanLyBanHangDtos;
 
 namespace WebBanHangMcv.Areas.admin.Controllers
 {
-    public class ContactController : Controller
+    public class ContactController : BaseController
     {
         private IContactService _iContactService;
 

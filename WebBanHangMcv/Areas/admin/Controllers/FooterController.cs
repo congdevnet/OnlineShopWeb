@@ -8,7 +8,7 @@ using WebQuanLyBanHangDtos;
 
 namespace WebBanHangMcv.Areas.admin.Controllers
 {
-    public class FooterController : Controller
+    public class FooterController : BaseController
     {
         private IFooterSrevices _iFooterService;
 

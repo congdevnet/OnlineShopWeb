@@ -21,6 +21,8 @@ namespace WebQuanLyCayCanhBoostrap
             ProductCategoryMap.MapConfig();
             ProductMap.MapConfig();
             UserMap.MapConfig();
+            SlideMap.MapCofig();
+            CredentialMap.Mapconfig();
         }
     }
 }

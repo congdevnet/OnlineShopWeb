@@ -1,9 +1,9 @@
 ﻿<aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/" class="brand-link">
-        <img src="~/ImgFile/images/images.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
-    </a>
+        <img src="~/ImgFile/images/images.jpg" alt="Shop huyen dieu" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">@Session["UserName"]</span>
+</a>
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -13,7 +13,7 @@
                 <img src="~/ImgFile/images/images.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block">@Session["UserName"]</a>
             </div>
         </div>
 
@@ -83,10 +83,16 @@
                         <p>
                             Cài đặt trang web
                             <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-info right">3</span>
+                            <span class="badge badge-info right">6</span>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="@Url.Action("DanhSach","Slide")" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Trình quảng cáo</p>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a href="@Url.Action("DanhSach","MenuType")" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
@@ -169,13 +175,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="@Url.Action("DanhSach","MenuType")" class="nav-link">
+                            <a href="@Url.Action("DanhSach","User")" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Bảng người dùng</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="@Url.Action("DanhSach","Menu")" class="nav-link">
+                            <a href="@Url.Action("DanhSach","User")" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Phần quyền</p>
                             </a>

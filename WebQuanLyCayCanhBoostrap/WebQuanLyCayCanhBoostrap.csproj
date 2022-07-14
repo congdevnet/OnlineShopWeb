@@ -89,6 +89,7 @@
     <Compile Include="AutoMap\ContactMap.cs" />
     <Compile Include="AutoMap\ContentMap.cs" />
     <Compile Include="AutoMap\ContentTagMap.cs" />
+    <Compile Include="AutoMap\CredentialMap.cs" />
     <Compile Include="AutoMap\FeedbackMap.cs" />
     <Compile Include="AutoMap\FooterMap.cs" />
     <Compile Include="AutoMap\LanguageMap.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="AutoMap\OrderMap.cs" />
     <Compile Include="AutoMap\ProductCategoryMap.cs" />
     <Compile Include="AutoMap\ProductMap.cs" />
+    <Compile Include="AutoMap\SlideMap.cs" />
     <Compile Include="AutoMap\UserMap.cs" />
     <Compile Include="Mapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -16,6 +16,7 @@ using WebBanHangMcv.Services.OrderDetailServices;
 using WebBanHangMcv.Services.OrderSrevices;
 using WebBanHangMcv.Services.ProductCategorySrevices;
 using WebBanHangMcv.Services.ProductServices;
+using WebBanHangMcv.Services.SlideServices;
 using WebBanHangMcv.Services.UserSrevices;
 using WebQuanLayBanHangEntityFramework;
 
@@ -83,6 +84,7 @@ namespace WebBanHangMcv
             container.RegisterType<IProductCategorySrevices, ProductCategorySrevice>();
             container.RegisterType<IProducSrevices, ProductSercie>();
             container.RegisterType<IUserSercies, UserSercie>();
+            container.RegisterType<ISlideServices, SlideService>();
         }
     }
 }

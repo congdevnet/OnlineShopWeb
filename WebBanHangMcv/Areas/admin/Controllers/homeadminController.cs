@@ -2,7 +2,7 @@
 
 namespace WebBanHangMcv.Areas.admin.Controllers
 {
-    public class homeadminController : Controller
+    public class homeadminController : BaseController
     {
         // GET: admin/home
         public ActionResult Index()

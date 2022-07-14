@@ -67,6 +67,7 @@
     <Compile Include="ContactDto.cs" />
     <Compile Include="ContentDto.cs" />
     <Compile Include="ContentTagDto.cs" />
+    <Compile Include="CredentialDto.cs" />
     <Compile Include="FeedbackDto.cs" />
     <Compile Include="FooterDto.cs" />
     <Compile Include="LanguageDto.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="ProductCategoryDto.cs" />
     <Compile Include="ProductDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SlideDto.cs" />
     <Compile Include="UserDto.cs" />
     <Compile Include="UserLogin.cs" />
   </ItemGroup>

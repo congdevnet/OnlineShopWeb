@@ -8,7 +8,7 @@ using WebQuanLyBanHangDtos;
 
 namespace WebBanHangMcv.Areas.admin.Controllers
 {
-    public class MenuTypeController : Controller
+    public class MenuTypeController : BaseController
     {
         // GET: admin/MenuTypeType
         private IMenuTypeServices _IMenuTypeSrevices;

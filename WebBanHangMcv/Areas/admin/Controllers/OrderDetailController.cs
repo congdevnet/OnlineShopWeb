@@ -4,7 +4,7 @@ using WebBanHangMcv.Services.OrderDetailServices;
 
 namespace WebBanHangMcv.Areas.admin.Controllers
 {
-    public class OrderDetailController : Controller
+    public class OrderDetailController : BaseController
     {
         // GET: admin/OrderDetail
         private IOrderDetailServices _IOrderDetailServices;

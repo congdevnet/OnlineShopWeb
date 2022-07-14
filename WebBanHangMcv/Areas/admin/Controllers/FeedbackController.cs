@@ -8,7 +8,7 @@ using WebQuanLyBanHangDtos;
 
 namespace WebBanHangMcv.Areas.admin.Controllers
 {
-    public class FeedbackController : Controller
+    public class FeedbackController : BaseController
     {
         private IFeedbackServices _iFeedbackService;
 
