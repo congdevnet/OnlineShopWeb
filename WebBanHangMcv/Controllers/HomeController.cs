@@ -1,23 +1,60 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using WebBanHangMcv.Services.MenuServices;
+using WebBanHangMcv.Services.ProductCategorySrevices;
+using WebBanHangMcv.Services.ProductServices;
+using WebBanHangMcv.Services.SlideServices;
+using WebQuanLyBanHangDtos;
 
 namespace WebBanHangMcv.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        private IMenuServices _IMenuSrevices;
+        private IProductCategorySrevices _IProductCategorySrevices;
+        private ISlideServices _iSlideService;
+        private IProducSrevices _IProducSrevices;
+
+        public HomeController(IMenuServices _IMenuSrevices, IProductCategorySrevices _IProductCategorySrevices,
+            ISlideServices _iSlideService, IProducSrevices _IProducSrevices)
         {
-            return View();
+            this._IMenuSrevices = _IMenuSrevices;
+            this._IProductCategorySrevices = _IProductCategorySrevices;
+            this._iSlideService = _iSlideService;
+            this._IProducSrevices = _IProducSrevices;
         }
 
-        public ActionResult About()
+        public ActionResult Index()
         {
-            ViewBag.Message = "Your application description page.";
+            var Data = _IProducSrevices.All<ProductDto>();
+            return View(Data);
+        }
 
-            return View();
+        [ChildActionOnly]
+        public ActionResult Menu()
+        {
+            var Data = _IMenuSrevices.All<Menuview>();
+            return PartialView(Data);
+        }
+
+        [ChildActionOnly]
+        public ActionResult Danhmuc()
+        {
+            var Data = _IProductCategorySrevices.All<ProductCategoryDto>();
+            return PartialView(Data);
+        }
+
+        [ChildActionOnly]
+        public ActionResult Menutop()
+        {
+            var Data = _IMenuSrevices.All<Menuview>();
+            return PartialView(Data);
+        }
+
+        [ChildActionOnly]
+        public ActionResult Slider()
+        {
+            var Data = _iSlideService.All<SlideDto>();
+            return PartialView(Data);
         }
 
         public ActionResult Contact()

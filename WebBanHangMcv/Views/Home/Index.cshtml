@@ -1,31 +1,100 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model IQueryable<WebQuanLyBanHangDtos.ProductDto>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<style scoped>
+    .imghover:hover {
+        transform: scale(1.5);
+    }
+</style>
+<div class="header_slide">
+    <div class="header_bottom_left">
+        @{ Html.RenderAction("Danhmuc", "Home");}
+    </div>
+    <div class="header_bottom_right">
+        <div class="slider">
+            <div id="slider">
+                @{ Html.RenderAction("Slider", "Home");}
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="main">
+    <div class="content">
+        <div class="content_top">
+            <div class="heading">
+                <h3>Sản phẩm mới</h3>
+            </div>
+            <div class="see">
+                <p><a href="#">Xem tất cả sản phẩm</a></p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="section group">
+            @foreach (var item in Model.Where(x => x.Newproduct == true))
+            {
+                var Url = @item.MetaTitle + "/sp/" + @item.ID;
+                <div class="grid_1_of_4 images_1_of_4">
+                    <a href="@Url">
+                        <img class="imghover" style="width:212px; height:212px" src="@item.Image" alt="sản phẩm" />
+                    </a>
+                    @*<h2>@item.Name</h2>*@
+                    <h6><a href="@Url">@item.Name</a></h6>
+                    <div class="price-details">
+                        <div class="price-number">
+                            <p>
+                                <span class="rupees" style="font-size:20px">
+                                    <i class="fa fa-money-check"></i>
+                                    @string.Format("{0:0,0 đ}", item.Price)
+                                </span>
+                            </p>
+                        </div>
+                        <div class="add-cart">
+                            <h4><a href="#">Mua ngay</a></h4>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="content_bottom">
+            <div class="heading">
+                <h3>Sản phẩm nổi bật</h3>
+            </div>
+            <div class="see">
+                <p><a href="#">Xem tất cả sản phẩm</a></p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="section group">
+            @foreach (var item in Model.Where(x => x.Featuredproducts == true))
+            {
+                <div class="grid_1_of_4 images_1_of_4">
+                    <a href="@Url">
+                        <img class="imghover" style="width:212px; height:212px" src="@item.Image" alt="sản phẩm" />
+                    </a>
+                    @*<h2>@item.Name</h2>*@
+                    <h6><a href="@Url">@item.Name</a></h6>
+                    <div class="price-details">
+                        <div class="price-number">
+                            <p>
+                                <span class="rupees" style="font-size:20px">
+                                    <i class="fa fa-money-check"></i>
+                                    @string.Format("{0:0,0 đ}", item.Price)
+                                </span>
+                            </p>
+                        </div>
+                        <div class="add-cart">
+                            <h4><a href="#">Mua ngay</a></h4>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>

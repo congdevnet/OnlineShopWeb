@@ -37,5 +37,7 @@ namespace WebQuanLayBanHangEntityFramework
         public Nullable<bool> Status { get; set; }
         public Nullable<System.DateTime> TopHot { get; set; }
         public Nullable<int> ViewCount { get; set; }
+        public Nullable<bool> Newproduct { get; set; }
+        public Nullable<bool> Featuredproducts { get; set; }
     }
 }

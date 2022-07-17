@@ -1,0 +1,44 @@
+﻿@model IQueryable<WebQuanLyBanHangDtos.SlideDto>
+<div id="mover">
+    @foreach (var item in Model.Where(x => x.DisplayOrder < 2))
+    {
+        <div id="slide-1" class="slide">
+            <div class="slider-img">
+                <a href="@item.Link"><img src="@item.Image" alt="learn more" /></a>
+            </div>
+            <div class="slider-text">
+                <h1>
+                    Thanh lý<br>
+                    @*<span>Danh thu</span>*@
+                </h1>
+                <h2>Đang giảm 10%</h2>
+                <div class="features_list">
+                    <h4>@item.Description</h4>
+                </div>
+                <a href="#" class="button"> Mua ngay</a>
+            </div>
+            <div class="clear"></div>
+            <div class="clear"></div>
+        </div>
+    }
+    @foreach (var item in Model.Where(x => x.DisplayOrder > 1))
+    {
+        <div class="slide">
+            <div class="slider-img">
+                <a href="@item.Link"><img src="@item.Image" alt="learn more" /></a>
+            </div>
+            <div class="slider-text">
+                <h1>
+                    Thanh lý<br>
+                    @*<span>Danh thu</span>*@
+                </h1>
+                <h2>Đang giảm 10%</h2>
+                <div class="features_list">
+                    <h4>@item.Description</h4>
+                </div>
+                <a href="#" class="button"> Mua ngay</a>
+            </div>
+            <div class="clear"></div>
+        </div>
+    }
+</div>

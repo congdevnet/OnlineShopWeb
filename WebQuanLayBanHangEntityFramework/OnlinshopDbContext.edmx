@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="OnlineShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="OnlineShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="About">
           <Key>
             <PropertyRef Name="ID" />
@@ -189,6 +189,8 @@
           <Property Name="Status" Type="bit" />
           <Property Name="TopHot" Type="datetime" />
           <Property Name="ViewCount" Type="int" />
+          <Property Name="Newproduct" Type="bit" />
+          <Property Name="Featuredproducts" Type="bit" />
         </EntityType>
         <EntityType Name="ProductCategory">
           <Key>
@@ -309,8 +311,7 @@
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserGroup" EntityType="Self.UserGroup" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="OnlineShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -498,6 +499,8 @@
           <Property Name="Status" Type="Boolean" />
           <Property Name="TopHot" Type="DateTime" Precision="3" />
           <Property Name="ViewCount" Type="Int32" />
+          <Property Name="Newproduct" Type="Boolean" />
+          <Property Name="Featuredproducts" Type="Boolean" />
         </EntityType>
         <EntityType Name="ProductCategory">
           <Key>
@@ -794,6 +797,8 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="OnlineShopModel.Product">
               <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Featuredproducts" ColumnName="Featuredproducts" />
+                <ScalarProperty Name="Newproduct" ColumnName="Newproduct" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Code" ColumnName="Code" />

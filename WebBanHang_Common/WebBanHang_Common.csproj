@@ -46,6 +46,7 @@
     <Compile Include="JsonRespon.cs" />
     <Compile Include="MD5Pasword.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SetupPage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

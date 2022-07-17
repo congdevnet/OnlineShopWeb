@@ -184,6 +184,7 @@
     <Compile Include="Areas\admin\Controllers\FeedbackController.cs" />
     <Compile Include="Areas\admin\Controllers\FooterController.cs" />
     <Compile Include="Areas\admin\Controllers\homeadminController.cs" />
+    <Compile Include="Areas\admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\admin\Controllers\MenuController.cs" />
     <Compile Include="Areas\admin\Controllers\MenuTypeController.cs" />
     <Compile Include="Areas\admin\Controllers\OrderController.cs" />
@@ -192,7 +193,9 @@
     <Compile Include="Areas\admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\admin\Controllers\SlideController.cs" />
     <Compile Include="Areas\admin\Controllers\UserController.cs" />
+    <Compile Include="Controllers\DanhmucController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -3192,6 +3195,16 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\easy-responsive-tabs.css" />
+    <Content Include="Content\css\global.css" />
+    <Content Include="Content\css\slider.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\facebook.png" />
+    <Content Include="Content\hUYEN.png" />
+    <Content Include="Content\price-rating.png" />
+    <Content Include="Content\quality-rating.png" />
+    <Content Include="Content\twitter.png" />
+    <Content Include="Content\value-rating.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -3387,12 +3400,13 @@
     <Content Include="Config\Dbcontext.config" />
     <Content Include="Areas\admin\Views\Slide\Index.cshtml" />
     <Content Include="Areas\admin\Views\Slide\DanhSach.cshtml" />
-    <Content Include="Areas\admin\Views\User\Login.cshtml" />
     <Content Include="asset\login\css\.DS_Store" />
     <Content Include="asset\login\css\bootstrap\.DS_Store" />
     <Content Include="asset\login\css\bootstrap\mixins\.DS_Store" />
     <Content Include="asset\login\images\.DS_Store" />
     <Content Include="asset\login\js\.DS_Store" />
+    <Content Include="Areas\admin\Views\Login\Index.cshtml" />
+    <Content Include="Areas\admin\Views\homeadmin\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -3403,6 +3417,15 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js\easing.js" />
+    <Content Include="Scripts\js\easyResponsiveTabs.js" />
+    <Content Include="Scripts\js\jquery-1.7.2.min.js" />
+    <Content Include="Scripts\js\jquery.accordion.js" />
+    <Content Include="Scripts\js\jquery.easing.js" />
+    <Content Include="Scripts\js\move-top.js" />
+    <Content Include="Scripts\js\script.js" />
+    <Content Include="Scripts\js\slides.min.jquery.js" />
+    <Content Include="Scripts\js\startstop-slider.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -3418,6 +3441,12 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Menu.cshtml" />
+    <Content Include="Views\Shared\Danhmuc.cshtml" />
+    <Content Include="Views\Shared\Menutop.cshtml" />
+    <Content Include="Views\Shared\Slider.cshtml" />
+    <Content Include="Views\Danhmuc\GetDanhmuc.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

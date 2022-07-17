@@ -33,6 +33,8 @@ namespace WebQuanLyBanHangDtos
         public Nullable<bool> Status { get; set; }
         public Nullable<System.DateTime> TopHot { get; set; }
         public Nullable<int> ViewCount { get; set; }
+        public bool? Newproduct { get; set; }
+        public bool? Featuredproducts { get; set; }
         public string Ngaytao { get; set; }
         public string NgaySale { get; set; }
     }

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 using WebBanHang_Common;
 using WebBanHangMcv.Services.UserSrevices;
@@ -10,7 +8,7 @@ using WebQuanLyBanHangDtos;
 
 namespace WebBanHangMcv.Areas.admin.Controllers
 {
-    public class UserController : Controller
+    public class UserController : BaseController
     {
         private IUserSercies _iUserService;
 
@@ -18,25 +16,7 @@ namespace WebBanHangMcv.Areas.admin.Controllers
         {
             this._iUserService = _iUserService;
         }
-        
-        public ActionResult Login()
-        {
-            return View();
-        }
-        public JsonResult Loginfrom(UserLogin userLogin)
-        {
-           var Data = _iUserService.Login(userLogin);
-            if (Data != null)
-            {
-                // Lưu Session
-                Session["UserName"] = userLogin.UserName;
-                return Json(new JsonRespon(Mes: "Đăng nhập thành công", Status: 200), JsonRequestBehavior.AllowGet);
-            }
-            else
-            {
-                return Json(new JsonRespon(Mes: "Đăng nhập không thành công", Status: 500), JsonRequestBehavior.AllowGet);
-            }
-        }
+
         // GET: admin/User
         [HttpGet]
         public ActionResult Index()
@@ -102,7 +82,5 @@ namespace WebBanHangMcv.Areas.admin.Controllers
                 return Json(new JsonRespon(Mes: ex.Message, Status: 500), JsonRequestBehavior.AllowGet);
             }
         }
-
-        
     }
 }

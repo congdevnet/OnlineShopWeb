@@ -184,6 +184,8 @@
     <Property Name="Status" Type="Boolean" />
     <Property Name="TopHot" Type="DateTime" Precision="3" />
     <Property Name="ViewCount" Type="Int32" />
+    <Property Name="Newproduct" Type="Boolean" />
+    <Property Name="Featuredproducts" Type="Boolean" />
   </EntityType>
   <EntityType Name="ProductCategory">
     <Key>

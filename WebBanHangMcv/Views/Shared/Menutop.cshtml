@@ -1,0 +1,10 @@
+﻿@model IQueryable<WebQuanLyBanHangDtos.Menuview>
+<div class="account_desc">
+    <ul>
+        @foreach (var item in Model.Where(x=>x.TypeID==4))
+        {
+            <li><a href="@item.Link">@item.Text</a></li>
+        }
+       
+    </ul>
+</div>

@@ -190,6 +190,16 @@
                                         <input class="form-check-input" type="checkbox" id="txtIncludedVAT">
                                     </div>
                                 </div>
+                                <div class="form-group row">
+                                    <label for="txtNewproduct" class="control-label col-md-2">Sản phẩm mới</label>
+                                    <div class="col-md-4">
+                                        <input class="form-check-input" type="checkbox" id="txtNewproduct">
+                                    </div>
+                                    <label for="txtFeaturedproducts" class="control-label col-md-2">Sản phẩm nổi bật</label>
+                                    <div class="col-md-4">
+                                        <input class="form-check-input" type="checkbox" id="txtFeaturedproducts">
+                                    </div>
+                                </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-primary" id="btnSave" onclick="save()">Confirm</button>
@@ -276,14 +286,15 @@
             CKEDITOR.instances['txtDetail'].setData('');
             $("#txtStatus").val(false);
             $("#txtIncludedVAT").val(false);
-
+            $("#txtNewproduct").val(false);
+            $("#txtFeaturedproducts").val(false);
             ClearError('#txtten');
 
             $("#btnSave").text("Lưu lại");
             $('#tile-body').nextAll(".spanError").remove();
         };
         var Bool = true;
-        $("#txtStatus[type='checkbox']").change(function () {
+        $("#txtStatus").change(function () {
             if ($(this).is(":checked")) {
                 Bool = true;
             }
@@ -292,12 +303,30 @@
             }
         });
         var BoolVat = true;
-        $("#txtIncludedVAT[type='checkbox']").change(function () {
+        $("#txtIncludedVAT").change(function () {
             if ($(this).is(":checked")) {
                 BoolVat = true;
             }
             else {
                 BoolVat = false;
+            }
+        });
+        var BoolNewproduct = true;
+        $("#txtNewproduct").change(function () {
+            if ($(this).is(":checked")) {
+                BoolNewproduct = true;
+            }
+            else {
+                BoolNewproduct = false;
+            }
+        });
+        var BoolFeaturedproducts = true;
+        $("#txtFeaturedproducts").change(function () {
+            if ($(this).is(":checked")) {
+                BoolFeaturedproducts = true;
+            }
+            else {
+                BoolFeaturedproducts = false;
             }
         });
         function Closed() {
@@ -333,6 +362,8 @@
                 CategoryID: $('#txtCategoryID').val(),
                 Warranty: $('#txtWarranty').val(),
                 TopHot: $('#txtTopHot').val(),
+                Newproduct: BoolNewproduct,
+                Featuredproducts: BoolFeaturedproducts,
                 ViewCount:0
             };
             return Data;
@@ -361,6 +392,8 @@
             $('#txtCategoryID').val(Obj.CategoryID);
             $('#txtWarranty').val(Obj.Warranty);
             $('#txtTopHot').val(Obj.NgaySale);
+            $("#txtNewproduct").prop('checked', Obj.Newproduct);
+            $("#txtFeaturedproducts").prop('checked', Obj.Featuredproducts);
         }
         function Add() {
             Show('#Productadd', '#Productmain');

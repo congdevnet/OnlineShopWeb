@@ -1,0 +1,9 @@
+﻿@model IQueryable<WebQuanLyBanHangDtos.Menuview>
+<div class="menu">
+    <ul>
+        @foreach (var item in Model.Where(x=>x.TypeID==5))
+        {
+            <li><a href="@item.Link">@item.Text</a></li>
+        }
+    </ul>
+</div>

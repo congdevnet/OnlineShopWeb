@@ -184,6 +184,8 @@
     <Property Name="Status" Type="bit" />
     <Property Name="TopHot" Type="datetime" />
     <Property Name="ViewCount" Type="int" />
+    <Property Name="Newproduct" Type="bit" />
+    <Property Name="Featuredproducts" Type="bit" />
   </EntityType>
   <EntityType Name="ProductCategory">
     <Key>

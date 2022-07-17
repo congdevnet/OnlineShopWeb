@@ -26,6 +26,8 @@ namespace WebQuanLyCayCanhBoostrap.AutoMap
             .ForMember(des => des.Quantity, mos => mos.MapFrom(mo => mo.Quantity))
             .ForMember(des => des.Warranty, mos => mos.MapFrom(mo => mo.Warranty))
             .ForMember(des => des.TopHot, mos => mos.MapFrom(mo => mo.TopHot))
+            .ForMember(des => des.Newproduct, mos => mos.MapFrom(mo => mo.Newproduct))
+            .ForMember(des => des.Featuredproducts, mos => mos.MapFrom(mo => mo.Featuredproducts))
             .ForMember(des => des.Status, mos => mos.MapFrom(mo => mo.Status));
 
             AutoMapper.Mapper.CreateMap<ProductDto, Product>()
@@ -47,6 +49,8 @@ namespace WebQuanLyCayCanhBoostrap.AutoMap
             .ForMember(des => des.Quantity, mos => mos.MapFrom(mo => mo.Quantity))
             .ForMember(des => des.Warranty, mos => mos.MapFrom(mo => mo.Warranty))
             .ForMember(des => des.TopHot, mos => mos.MapFrom(mo => mo.TopHot))
+            .ForMember(des => des.Newproduct, mos => mos.MapFrom(mo => mo.Newproduct))
+            .ForMember(des => des.Featuredproducts, mos => mos.MapFrom(mo => mo.Featuredproducts))
             .ForMember(des => des.Status, mos => mos.MapFrom(mo => mo.Status));
         }
     }

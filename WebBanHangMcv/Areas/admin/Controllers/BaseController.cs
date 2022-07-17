@@ -19,7 +19,7 @@ namespace WebBanHangMcv.Areas.admin.Controllers
 
             if (session == null)
             {
-                filterContext.Result = new RedirectToRouteResult(new System.Web.Routing.RouteValueDictionary(new { Controller = "Login", Action = "User" }));
+                filterContext.Result = new RedirectToRouteResult(new System.Web.Routing.RouteValueDictionary(new { Controller = "Login", Action = "Index" }));
             }
 
             base.OnActionExecuted(filterContext);

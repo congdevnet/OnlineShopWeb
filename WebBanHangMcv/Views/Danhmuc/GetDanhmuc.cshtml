@@ -1,0 +1,97 @@
+﻿@model IQueryable<WebQuanLyBanHangDtos.ProductDto>
+@{
+    ViewBag.Title = "GetDanhmuc";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style scoped>
+    .imghover:hover {
+        transform: scale(1.2);
+    }
+</style>
+<div class="main">
+    <div class="content">
+        <div class="content_top">
+            <div class="heading">
+                <h3>@ViewBag.ProductCategory</h3>
+            </div>
+            <div class="see">
+                <p><a href="#">Tất cả sản phẩm</a></p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="section group">
+            @foreach (var item in Model)
+            {
+                var Url = @item.MetaTitle + "/sp/" + @item.ID;
+                <div class="grid_1_of_4 images_1_of_4">
+                    <a href="@Url">
+                        <img class="imghover" style="width:225px; height:286px" src="@item.Image" alt="sản phẩm" />
+                    </a>
+                    @*<h2>@item.Name</h2>*@
+                    <h6><a href="@Url">@item.Name</a></h6>
+                    <div class="price-details">
+                        <div class="price-number">
+                            <p>
+                                <span class="rupees" style="font-size:20px">
+                                    <i class="fa fa-money-check"></i>
+                                    @string.Format("{0:0,0 đ}", item.Price)
+                                </span>
+                            </p>
+                        </div>
+                        <div class="add-cart">
+                            <h4><a href="#">Mua ngay</a></h4>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            }
+        </div>
+        @if ((int)ViewBag.TotalRow > 0)
+        {
+            <!--Setup phân trang-->
+            int pageDisplay = (int)ViewBag.Maxpage;
+            int Totalpage = (int)ViewBag.Totalpage;
+            int currentPage = (int)ViewBag.pageIndex;
+            var StartpageIndex = Math.Max(1, currentPage - pageDisplay / 2);
+            var EndPageIndex = Math.Min(Totalpage, currentPage + pageDisplay / 2);
+
+            var Link = ViewBag.Metatile + "_dm_" + ViewBag.Id;
+            <nav>
+                <ul class="content-pagenation">
+                    @if (currentPage > ViewBag.First)
+                    {
+                        <li><a href="@Link?pageIndex=@ViewBag.First" title="Trang đầu"><i class="fa fa-angle-double-left"></i></a></li>
+                        <li>
+                            <a href="@Link?pageIndex=@ViewBag.Prev" title="Trang trước"><i class="fa fa-angle-left"></i></a>
+                        </li>
+
+                    }
+                    @for (int i = StartpageIndex; i <= EndPageIndex; i++)
+                    {
+                        if (currentPage == i)
+                        {
+
+                            <li class="active"> <a href="@Link?pageIndex=@i" title="Trang @i">@i</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="@Link?pageIndex=@i" title="Trang @i">@i</a></li>
+                        }
+                    }
+                    @if (currentPage < Totalpage)
+                    {
+                        <li><a href="@Link?pageIndex=@ViewBag.Next" title="Trang sau"><i class="fa fa-angle-right"></i></a></li>
+                        <li> <a href="@Link?pageIndex=@ViewBag.Last" title="Trang cuối"><i class="fa fa-angle-double-right"></i></a></li>
+                    }
+
+                </ul>
+            </nav>
+
+        }
+        else
+        {
+            <span>Không có bản ghi nào</span>
+        }
+
+    </div>
+</div>
