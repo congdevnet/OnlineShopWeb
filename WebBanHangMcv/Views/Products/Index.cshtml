@@ -4,6 +4,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<style scoped>
+    .butons >li{
+        display: inline-flex;
+        margin-right:15px;
+    }
+ 
+   
+</style>
 <div class="main">
     <div class="content">
         <div class="content_top">
@@ -43,7 +51,8 @@
                         <h2>@Model.MetaKeywords</h2>
                         <p>@Model.Description</p>
                         <div class="price">
-                            <p>Giá: <span> @string.Format("{0:0,0 đ}", Model.Price)</span></p>
+                            <p style="font-size:9px"><span >Giá: </span>
+                            <span >@string.Format("{0:0,0 đ}", Model.Price)</span></p>
                         </div>
                         @*<div class="available">
                             <p>Available Options :</p>
@@ -77,21 +86,24 @@
                                 </li>
                             </ul>
                         </div>*@
-                        <div class="share-desc">
-                            <div class="share">
-                                <p>Chia sẻ sản phẩm:</p>
-                                <ul>
-                                    <li><a href="#"><img src="~/Content/facebook.png" alt="" /></a></li>
-                                    <li><a href="#"><img src="~/Content/twitter.png" alt="" /></a></li>
-                                </ul>
-                            </div>
-                            <div class="button"><span><a href="#">Đặt hàng</a></span></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div class="wish-list">
+                    <div class="share-desc">
+                        <ul class="butons">
+                            <li><a href="#">Thêm vào giỏ hàng</a></li>
+                            <li><a href="#">Mua ngay</a></li>
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                        @*<div class="wish-list">
                             <ul>
                                 <li class="wish"><a href="#">Thêm vào danh sách yêu thích</a></li>
                                 <li class="compare"><a href="#">Thêm vào để so sánh</a></li>
+                            </ul>
+                        </div>*@
+                        <div class="share">
+                            <p>Chia sẻ sản phẩm:</p>
+                            <ul>
+                                <li><a href="#"><img src="~/Content/facebook.png" alt="" /></a></li>
+                                <li><a href="#"><img src="~/Content/twitter.png" alt="" /></a></li>
                             </ul>
                         </div>
                     </div>
@@ -164,8 +176,10 @@
             fit: true   // 100% fit in a container
         });
     });</script>
+
                 <div class="content_bottom">
                     <div class="heading">
+
                         <h3>Related Products</h3>
                     </div>
                     <div class="see">

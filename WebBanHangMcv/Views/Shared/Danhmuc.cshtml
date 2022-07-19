@@ -1,5 +1,4 @@
 ﻿@model IQueryable<WebQuanLyBanHangDtos.ProductCategoryDto>
-<div class="categories">
     <ul>
         <h3>Danh mục</h3>
         @foreach (var item in Model)
@@ -7,6 +6,5 @@
             var Url = @item.MetaTitle + "_dm_" + @item.ID;
             <li><a href="@Url">@item.Name</a></li>
         }
-       
     </ul>
-</div>
+

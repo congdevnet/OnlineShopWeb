@@ -10,18 +10,20 @@
 </style>
 <div class="header_slide">
     <div class="header_bottom_left">
-        @{ Html.RenderAction("Danhmuc", "Home");}
-    </div>
-    <div class="header_bottom_right">
-        <div class="slider">
-            <div id="slider">
-                @{ Html.RenderAction("Slider", "Home");}
-            </div>
-            <div class="clear"></div>
+        <div class="categories">
+            @{ Html.RenderAction("Danhmuc", "Home");}
         </div>
+        </div>
+        <div class="header_bottom_right">
+            <div class="slider">
+                <div id="slider">
+                    @{ Html.RenderAction("Slider", "Home");}
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="clear"></div>
     </div>
-    <div class="clear"></div>
-</div>
 <div class="main">
     <div class="content">
         <div class="content_top">
