@@ -100,6 +100,7 @@
     <Compile Include="AutoMap\ProductCategoryMap.cs" />
     <Compile Include="AutoMap\ProductMap.cs" />
     <Compile Include="AutoMap\SlideMap.cs" />
+    <Compile Include="AutoMap\TemporaryShoppingCartMap.cs" />
     <Compile Include="AutoMap\UserMap.cs" />
     <Compile Include="Mapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

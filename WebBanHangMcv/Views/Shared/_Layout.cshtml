@@ -42,11 +42,11 @@
                 <div class="cart">
                     <p>
                         Chào mừng đến với cửa hàng trực tuyến của chúng tôi!&nbsp; <span>Xe đẩy:&nbsp;</span><div id="dd" class="wrapper-dropdown-2">
-    0 item(s) - $0.00&nbsp;&nbsp;
-    <ul class="dropdown">
-        <li>Bạn không có sản phẩm nào trong giỏ hàng của bạn</li>
-    </ul>
-</div>
+                            0 item(s) - $0.00&nbsp;&nbsp;
+                            <ul class="dropdown">
+                                <li>Bạn không có sản phẩm nào trong giỏ hàng của bạn</li>
+                            </ul>
+                        </div>
                     </p>
                 </div>
                 <script type="text/javascript">
@@ -147,11 +147,12 @@
         </div>
     </div>
     <script type="text/javascript">
-    $(document).ready(function () {
+        $(document).ready(function () {
             $().UItoTop({ easingType: 'easeOutQuart' });
 
         });</script>
     <a href="#" id="toTop"><span id="toTopHover"> </span></a>
+    @RenderSection("scripts", required: false)
 </body>
 </html>
 

@@ -23,6 +23,7 @@ namespace WebQuanLyCayCanhBoostrap
             UserMap.MapConfig();
             SlideMap.MapCofig();
             CredentialMap.Mapconfig();
+            TemporaryShoppingCartMap.Maponfig();
         }
     }
 }

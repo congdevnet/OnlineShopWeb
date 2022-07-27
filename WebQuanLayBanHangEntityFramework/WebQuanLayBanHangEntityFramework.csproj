@@ -126,6 +126,9 @@
     <Compile Include="Tag.cs">
       <DependentUpon>OnlinshopDbContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="TemporaryShoppingCart.cs">
+      <DependentUpon>OnlinshopDbContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
       <DependentUpon>OnlinshopDbContext.tt</DependentUpon>
     </Compile>

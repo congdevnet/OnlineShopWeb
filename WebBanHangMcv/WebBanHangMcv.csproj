@@ -193,6 +193,7 @@
     <Compile Include="Areas\admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\admin\Controllers\SlideController.cs" />
     <Compile Include="Areas\admin\Controllers\UserController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\DanhmucController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
@@ -241,6 +242,8 @@
     <Compile Include="Services\ProductServices\ProductSercie.cs" />
     <Compile Include="Services\SlideServices\ISlideServices.cs" />
     <Compile Include="Services\SlideServices\SlideService.cs" />
+    <Compile Include="Services\TemporaryShoppingCartServices\ITemporaryShoppingCartServices.cs" />
+    <Compile Include="Services\TemporaryShoppingCartServices\TemporaryShoppingCartServices.cs" />
     <Compile Include="Services\UserSrevices\IUserSercies.cs" />
     <Compile Include="Services\UserSrevices\UserSercie.cs" />
   </ItemGroup>
@@ -3447,6 +3450,8 @@
     <Content Include="Views\Shared\Slider.cshtml" />
     <Content Include="Views\Danhmuc\GetDanhmuc.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Cart\ListTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

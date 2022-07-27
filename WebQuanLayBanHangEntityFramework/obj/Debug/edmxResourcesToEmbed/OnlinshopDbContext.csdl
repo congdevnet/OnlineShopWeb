@@ -305,5 +305,15 @@
     <EntitySet Name="Tags" EntityType="Self.Tag" />
     <EntitySet Name="Users" EntityType="Self.User" />
     <EntitySet Name="UserGroups" EntityType="Self.UserGroup" />
+    <EntitySet Name="TemporaryShoppingCarts" EntityType="OnlineShopModel.TemporaryShoppingCart" />
   </EntityContainer>
+  <EntityType Name="TemporaryShoppingCart">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Pro_id" Type="Int32" />
+    <Property Name="Amount" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
 </Schema>

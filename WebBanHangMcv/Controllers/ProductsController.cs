@@ -15,7 +15,7 @@ namespace WebBanHangMcv.Controllers
         // GET: Products
         public ActionResult Index(int id)
         {
-            var Data = _IProducSrevices.All<ProductDto>().Where(x => x.ID == id).FirstOrDefault(); ;
+            var Data = _IProducSrevices.All<ProductDto>().Where(x => x.ID == id).FirstOrDefault(); 
             return View(Data);
         }
     }
